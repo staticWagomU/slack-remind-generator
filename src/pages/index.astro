@@ -1,16 +1,18 @@
 ---
-
+import "../styles/global.css";
+import { App } from "../components/App";
 ---
 
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Slackリマインダーコマンド生成</title>
+		<meta name="description" content="日本語で入力してSlackの/remindコマンドを簡単生成できるWebアプリ" />
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-gray-50 min-h-screen">
+		<App client:load />
 	</body>
 </html>
