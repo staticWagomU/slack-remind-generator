@@ -91,7 +91,7 @@ export function RecurringMode({ onChange }: RecurringModeProps) {
 		<div className="space-y-4">
 			{/* 頻度選択 */}
 			<div className="space-y-2">
-				<label className="text-sm font-medium text-gray-700">
+				<label className="text-sm font-medium text-slate-700">
 					繰り返しパターン
 				</label>
 				<Select value={config.frequency} onValueChange={handleFrequencyChange}>
@@ -119,7 +119,7 @@ export function RecurringMode({ onChange }: RecurringModeProps) {
 			{/* 曜日選択 */}
 			{showDaySelection && (
 				<div className="space-y-3">
-					<label className="text-sm font-medium text-gray-700">
+					<label className="text-sm font-medium text-slate-700">
 						曜日を選択
 					</label>
 					<div className="grid grid-cols-2 gap-2">
@@ -169,7 +169,7 @@ export function RecurringMode({ onChange }: RecurringModeProps) {
 			{/* 月の日付選択 */}
 			{showDayOfMonth && (
 				<div className="space-y-2">
-					<label className="text-sm font-medium text-gray-700">
+					<label className="text-sm font-medium text-slate-700">
 						毎月の日付
 					</label>
 					<Input
@@ -181,13 +181,13 @@ export function RecurringMode({ onChange }: RecurringModeProps) {
 						onChange={(e) => handleDayOfMonthChange(e.target.value)}
 						className="w-24"
 					/>
-					<p className="text-xs text-gray-500">1〜31の間で指定してください</p>
+					<p className="text-xs text-slate-500">1〜31の間で指定してください</p>
 				</div>
 			)}
 
 			{/* プレビュー */}
-			<div className="p-3 bg-blue-50 border border-blue-200 rounded-md">
-				<p className="text-sm text-blue-800">
+			<div className="p-3 bg-sky-50 border border-sky-200 rounded-md">
+				<p className="text-sm text-sky-700">
 					<strong>設定内容:</strong>{" "}
 					{formatRecurringPattern(config) || "設定を完了してください"}
 				</p>

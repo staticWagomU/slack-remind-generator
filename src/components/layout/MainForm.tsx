@@ -113,17 +113,17 @@ export function MainForm() {
 	return (
 		<div className="max-w-6xl mx-auto p-6">
 			<div className="mb-8 text-center">
-				<h1 className="text-3xl font-bold text-gray-900 mb-2">
+				<h1 className="text-3xl font-bold text-slate-800 mb-2">
 					Slackリマインダーコマンド生成
 				</h1>
-				<p className="text-gray-600">
+				<p className="text-slate-600">
 					日本語で入力して、Slackの/remindコマンドを簡単生成
 				</p>
 			</div>
 
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 				<div className="space-y-8">
-					<div className="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+					<div className="bg-white p-6 border border-slate-200 rounded-lg shadow-sm">
 						<WhoSection
 							value={reminderConfig.who}
 							onChange={(value: WhoType) => updateConfig("who", value)}
@@ -131,7 +131,7 @@ export function MainForm() {
 						/>
 					</div>
 
-					<div className="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+					<div className="bg-white p-6 border border-slate-200 rounded-lg shadow-sm">
 						<WhatSection
 							value={reminderConfig.what}
 							onChange={(value: string) => updateConfig("what", value)}
@@ -139,7 +139,7 @@ export function MainForm() {
 						/>
 					</div>
 
-					<div className="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+					<div className="bg-white p-6 border border-slate-200 rounded-lg shadow-sm">
 						<WhenSection
 							value={reminderConfig.when}
 							onChange={(value: string) => updateConfig("when", value)}
@@ -152,11 +152,11 @@ export function MainForm() {
 					<CommandPreview config={reminderConfig} />
 
 					{errors.filter((e) => e.severity === "warning").length > 0 && (
-						<div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-							<h4 className="text-sm font-medium text-yellow-800 mb-2">
+						<div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+							<h4 className="text-sm font-medium text-amber-700 mb-2">
 								注意事項
 							</h4>
-							<ul className="text-sm text-yellow-700 space-y-1">
+							<ul className="text-sm text-amber-600 space-y-1">
 								{errors
 									.filter((e) => e.severity === "warning")
 									.map((error, index) => (
@@ -168,13 +168,13 @@ export function MainForm() {
 				</div>
 			</div>
 
-			<div className="mt-12 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-				<h3 className="text-lg font-medium text-gray-900 mb-3">
+			<div className="mt-12 p-6 bg-slate-50 border border-slate-200 rounded-lg">
+				<h3 className="text-lg font-medium text-slate-800 mb-3">
 					Slackリマインダーについて
 				</h3>
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-600">
 					<div>
-						<h4 className="font-medium text-gray-800 mb-2">基本的な使い方</h4>
+						<h4 className="font-medium text-slate-700 mb-2">基本的な使い方</h4>
 						<ul className="space-y-1">
 							<li>• 生成されたコマンドをSlackで実行</li>
 							<li>• 日時は英語形式で指定する必要があります</li>
@@ -182,7 +182,7 @@ export function MainForm() {
 						</ul>
 					</div>
 					<div>
-						<h4 className="font-medium text-gray-800 mb-2">制限事項</h4>
+						<h4 className="font-medium text-slate-700 mb-2">制限事項</h4>
 						<ul className="space-y-1">
 							<li>• 設定後のリマインダーは編集できません</li>
 							<li>• 他ユーザーへの繰り返し設定は不可</li>

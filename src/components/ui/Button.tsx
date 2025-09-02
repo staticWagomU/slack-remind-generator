@@ -18,7 +18,7 @@ const buttonVariants = cva(
 					"bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
 				ghost: "hover:bg-accent hover:text-accent-foreground",
 				link: "text-primary underline-offset-4 hover:underline",
-				primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
+				primary: "bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500",
 				danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
 			},
 			size: {
@@ -70,7 +70,7 @@ export function Button({
 	const variantStyles = {
 		primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
 		secondary:
-			"bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500",
+			"bg-slate-100 text-slate-900 hover:bg-slate-200 focus:ring-slate-500",
 		danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
 	};
 

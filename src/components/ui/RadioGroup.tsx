@@ -29,7 +29,7 @@ export function RadioGroup({
 		<div className="space-y-3">
 			{label && (
 				<fieldset>
-					<legend className="block text-sm font-medium text-gray-700">
+					<legend className="block text-sm font-medium text-slate-700">
 						{label}
 						{required && <span className="text-red-500 ml-1">*</span>}
 					</legend>
@@ -52,9 +52,9 @@ export function RadioGroup({
 							checked={value === option.value}
 							disabled={option.disabled}
 							onChange={(e) => onChange?.(e.target.value)}
-							className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+							className="h-4 w-4 text-sky-600 border-slate-300 focus:ring-sky-500"
 						/>
-						<span className="ml-2 text-sm text-gray-700">{option.label}</span>
+						<span className="ml-2 text-sm text-slate-700">{option.label}</span>
 					</label>
 				))}
 			</div>

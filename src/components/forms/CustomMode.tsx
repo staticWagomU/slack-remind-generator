@@ -49,19 +49,19 @@ export function CustomMode({ onChange }: CustomModeProps) {
 			/>
 
 			{convertedTime && (
-				<div className="p-3 bg-blue-50 border border-blue-200 rounded-md">
-					<h4 className="text-sm font-medium text-blue-800 mb-1">変換結果</h4>
-					<code className="text-sm text-blue-900 bg-blue-100 px-2 py-1 rounded">
+				<div className="p-3 bg-sky-50 border border-sky-200 rounded-md">
+					<h4 className="text-sm font-medium text-sky-700 mb-1">変換結果</h4>
+					<code className="text-sm text-sky-800 bg-sky-100 px-2 py-1 rounded">
 						{convertedTime}
 					</code>
 				</div>
 			)}
 
 			{warnings.length > 0 && (
-				<div className="p-3 bg-yellow-50 border border-yellow-200 rounded-md">
+				<div className="p-3 bg-amber-50 border border-amber-200 rounded-md">
 					<div className="flex">
 						<svg
-							className="h-5 w-5 text-yellow-400 mr-2 flex-shrink-0"
+							className="h-5 w-5 text-amber-400 mr-2 flex-shrink-0"
 							fill="currentColor"
 							viewBox="0 0 20 20"
 						>
@@ -71,7 +71,7 @@ export function CustomMode({ onChange }: CustomModeProps) {
 								clipRule="evenodd"
 							/>
 						</svg>
-						<div className="text-sm text-yellow-800">
+						<div className="text-sm text-amber-700">
 							{warnings.map((warning, index) => (
 								<p key={index}>{warning}</p>
 							))}
@@ -81,24 +81,24 @@ export function CustomMode({ onChange }: CustomModeProps) {
 			)}
 
 			<details className="mt-4">
-				<summary className="cursor-pointer text-sm font-medium text-gray-700 hover:text-gray-900">
+				<summary className="cursor-pointer text-sm font-medium text-slate-700 hover:text-slate-900">
 					入力例を見る
 				</summary>
 				<div className="mt-3 space-y-2">
 					{examples.map((example, index) => (
 						<div
 							key={index}
-							className="p-2 bg-gray-50 rounded cursor-pointer hover:bg-gray-100"
+							className="p-2 bg-slate-50 rounded cursor-pointer hover:bg-slate-100"
 							onClick={() => setJapaneseInput(example.japanese)}
 						>
 							<div className="text-sm">
-								<span className="text-gray-600">{example.japanese}</span>
-								<span className="mx-2 text-gray-400">→</span>
-								<code className="text-blue-600">{example.english}</code>
+								<span className="text-slate-600">{example.japanese}</span>
+								<span className="mx-2 text-slate-400">→</span>
+								<code className="text-sky-600">{example.english}</code>
 							</div>
 						</div>
 					))}
-					<p className="text-xs text-gray-500 mt-2">
+					<p className="text-xs text-slate-500 mt-2">
 						例をクリックすると入力欄に設定されます
 					</p>
 				</div>

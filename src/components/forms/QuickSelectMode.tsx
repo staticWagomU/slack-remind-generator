@@ -23,7 +23,7 @@ export function QuickSelectMode({ onChange }: QuickSelectModeProps) {
 
 	return (
 		<div className="space-y-2">
-			<label className="text-sm font-medium text-gray-700">
+			<label className="text-sm font-medium text-slate-700">
 				よく使う時間設定
 			</label>
 			<Select onValueChange={onChange}>
@@ -49,7 +49,7 @@ export function QuickSelectMode({ onChange }: QuickSelectModeProps) {
 					</SelectGroup>
 				</SelectContent>
 			</Select>
-			<p className="text-xs text-gray-500">
+			<p className="text-xs text-slate-500">
 				よく使用される時間設定から選択できます
 			</p>
 		</div>

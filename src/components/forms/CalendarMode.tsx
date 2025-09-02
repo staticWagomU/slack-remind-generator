@@ -42,7 +42,7 @@ export function CalendarMode({ onChange }: CalendarModeProps) {
 	return (
 		<div className="space-y-4">
 			<div className="space-y-2">
-				<label className="text-sm font-medium text-gray-700">日付選択</label>
+				<label className="text-sm font-medium text-slate-700">日付選択</label>
 				<Popover>
 					<PopoverTrigger asChild>
 						<ShadcnButton
@@ -77,15 +77,17 @@ export function CalendarMode({ onChange }: CalendarModeProps) {
 			/>
 
 			{selectedDate && selectedTime && (
-				<div className="p-3 bg-green-50 border border-green-200 rounded-md">
-					<p className="text-sm text-green-800">
+				<div className="p-3 bg-emerald-50 border border-emerald-200 rounded-md">
+					<p className="text-sm text-emerald-700">
 						<strong>選択中:</strong> {formatSelectedDate(selectedDate)}{" "}
 						{selectedTime}
 					</p>
 				</div>
 			)}
 
-			<p className="text-xs text-gray-500">今日以降、3ヶ月先まで選択できます</p>
+			<p className="text-xs text-slate-500">
+				今日以降、3ヶ月先まで選択できます
+			</p>
 		</div>
 	);
 }

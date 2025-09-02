@@ -42,7 +42,7 @@ export function WhenSection({
 	return (
 		<div className="space-y-4">
 			<div>
-				<label className="text-sm font-medium text-gray-700 mb-3 block">
+				<label className="text-sm font-medium text-slate-700 mb-3 block">
 					日時指定
 				</label>
 				<TimeModeSelector mode={mode} onChange={handleModeChange} />
@@ -67,11 +67,11 @@ export function WhenSection({
 
 			{/* 変換結果の表示 */}
 			{convertedTime && (
-				<div className="p-3 bg-green-50 border border-green-200 rounded-md">
-					<h4 className="text-sm font-medium text-green-800 mb-1">
+				<div className="p-3 bg-emerald-50 border border-emerald-200 rounded-md">
+					<h4 className="text-sm font-medium text-emerald-700 mb-1">
 						生成されるコマンド（when部分）
 					</h4>
-					<code className="text-sm text-green-900 bg-green-100 px-2 py-1 rounded font-mono">
+					<code className="text-sm text-emerald-800 bg-emerald-100 px-2 py-1 rounded font-mono">
 						{convertedTime}
 					</code>
 				</div>

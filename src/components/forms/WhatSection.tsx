@@ -24,14 +24,14 @@ export function WhatSection({ value, onChange, error }: WhatSectionProps) {
 			/>
 
 			<div className="flex justify-between items-center text-sm">
-				<div className="text-gray-500">複数行のテキスト、メンション対応</div>
+				<div className="text-slate-500">複数行のテキスト、メンション対応</div>
 				<div
 					className={`text-sm ${
 						currentLength > maxLength
 							? "text-red-600"
 							: currentLength > maxLength * 0.8
-								? "text-yellow-600"
-								: "text-gray-500"
+								? "text-amber-600"
+								: "text-slate-500"
 					}`}
 				>
 					{currentLength}/{maxLength}
@@ -39,9 +39,11 @@ export function WhatSection({ value, onChange, error }: WhatSectionProps) {
 			</div>
 
 			{value && (
-				<div className="mt-4 p-3 bg-gray-50 border border-gray-200 rounded-md">
-					<h4 className="text-sm font-medium text-gray-700 mb-2">プレビュー</h4>
-					<div className="text-sm text-gray-600 whitespace-pre-wrap">
+				<div className="mt-4 p-3 bg-slate-50 border border-slate-200 rounded-md">
+					<h4 className="text-sm font-medium text-slate-700 mb-2">
+						プレビュー
+					</h4>
+					<div className="text-sm text-slate-600 whitespace-pre-wrap">
 						{value}
 					</div>
 				</div>
