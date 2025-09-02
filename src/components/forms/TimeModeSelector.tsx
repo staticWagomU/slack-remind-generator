@@ -26,7 +26,7 @@ export function TimeModeSelector({ mode, onChange }: TimeModeSelectorProps) {
 					<span className="hidden sm:inline">繰り返し</span>
 				</TabsTrigger>
 				<TabsTrigger value="custom" className="flex items-center gap-2">
-					<span className="text-sm">✏️</span>
+					<img src="/edit.svg" alt="calendar" className="w-4 h-4" />
 					<span className="hidden sm:inline">カスタム</span>
 				</TabsTrigger>
 			</TabsList>
