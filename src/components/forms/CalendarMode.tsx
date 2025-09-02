@@ -10,7 +10,9 @@ interface CalendarModeProps {
 }
 
 export function CalendarMode({ onChange }: CalendarModeProps) {
-	const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+	const [selectedDate, setSelectedDate] = useState<Date | undefined>(
+		new Date(),
+	);
 	const [selectedTime, setSelectedTime] = useState<string>("09:00");
 
 	// 日付または時刻が変更されたら英語形式に変換
