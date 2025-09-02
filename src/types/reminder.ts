@@ -35,3 +35,19 @@ export interface AppState {
 	validationErrors: ValidationError[];
 	isLoading: boolean;
 }
+
+export type TimeInputMode = "quick" | "calendar" | "recurring" | "custom";
+
+export interface QuickTimeOption {
+	label: string;
+	value: string;
+	category: "relative" | "tomorrow";
+}
+
+export interface RecurringConfig {
+	frequency: "daily" | "weekday" | "weekly" | "biweekly" | "monthly";
+	selectedDays: string[];
+	selectedTime: string;
+	isEveryOther: boolean; // 隔週フラグ
+	dayOfMonth?: number;
+}
