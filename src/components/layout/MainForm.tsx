@@ -114,7 +114,7 @@ export function MainForm() {
 		<div className="max-w-6xl mx-auto p-6">
 			<div className="mb-8 text-center">
 				<h1 className="text-3xl font-bold text-slate-800 mb-2">
-					Slackリマインダーコマンド生成
+					Slackリマインドコマンド生成
 				</h1>
 				<p className="text-slate-600">
 					日本語で入力して、Slackの/remindコマンドを簡単生成
