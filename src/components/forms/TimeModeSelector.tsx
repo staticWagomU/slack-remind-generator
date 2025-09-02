@@ -14,7 +14,7 @@ export function TimeModeSelector({ mode, onChange }: TimeModeSelectorProps) {
 		>
 			<TabsList className="grid w-full grid-cols-4">
 				<TabsTrigger value="quick" className="flex items-center gap-2">
-					<span className="text-sm">⚡</span>
+					<img src="/zap.svg" alt="zap" className="w-4 h-4" />
 					<span className="hidden sm:inline">クイック</span>
 				</TabsTrigger>
 				<TabsTrigger value="calendar" className="flex items-center gap-2">
