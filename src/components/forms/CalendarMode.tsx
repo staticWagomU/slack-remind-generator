@@ -49,7 +49,12 @@ export function CalendarMode({ onChange }: CalendarModeProps) {
 							variant="outline"
 							className="w-full justify-start text-left font-normal"
 						>
-							📅 {formatSelectedDate(selectedDate)}
+							<img
+								src="/calendar-today.svg"
+								alt="calendar"
+								className="w-4 h-4 mr-2"
+							/>
+							{formatSelectedDate(selectedDate)}
 						</ShadcnButton>
 					</PopoverTrigger>
 					<PopoverContent className="w-auto p-0" align="start">
