@@ -44,6 +44,7 @@ export function WhenSection({
 			<div>
 				<label className="text-sm font-medium text-slate-700 mb-3 block">
 					日時指定
+					<span className="text-red-500 ml-1">*</span>
 				</label>
 				<TimeModeSelector mode={mode} onChange={handleModeChange} />
 			</div>
