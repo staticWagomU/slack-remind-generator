@@ -177,8 +177,8 @@ export function RecurringMode({ onChange }: RecurringModeProps) {
 						min="1"
 						max="31"
 						placeholder="日付を入力（1-31）"
-						value={config.dayOfMonth || ""}
-						onChange={(e) => handleDayOfMonthChange(e.target.value)}
+						value={config.dayOfMonth?.toString() || ""}
+						onChange={handleDayOfMonthChange}
 						className="w-24"
 					/>
 					<p className="text-xs text-slate-500">1〜31の間で指定してください</p>
