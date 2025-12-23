@@ -3,6 +3,7 @@ import { TimeModeSelector } from "./TimeModeSelector";
 import { QuickSelectMode } from "./QuickSelectMode";
 import { CalendarMode } from "./CalendarMode";
 import { RecurringMode } from "./RecurringMode";
+import { LastBusinessDayMode } from "./LastBusinessDayMode";
 import { CustomMode } from "./CustomMode";
 import { type TimeInputMode } from "../../types/reminder";
 
@@ -55,6 +56,10 @@ export function WhenSection({
 				{mode === "calendar" && <CalendarMode onChange={handleTimeChange} />}
 
 				{mode === "recurring" && <RecurringMode onChange={handleTimeChange} />}
+
+				{mode === "lastBusinessDay" && (
+					<LastBusinessDayMode onChange={handleTimeChange} />
+				)}
 
 				{mode === "custom" && <CustomMode onChange={handleTimeChange} />}
 			</div>

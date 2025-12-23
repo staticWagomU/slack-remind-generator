@@ -36,7 +36,13 @@ export interface AppState {
 	isLoading: boolean;
 }
 
-export type TimeInputMode = "quick" | "calendar" | "recurring" | "custom";
+export type TimeInputMode = "quick" | "calendar" | "recurring" | "custom" | "lastBusinessDay";
+
+export interface LastBusinessDayConfig {
+	year: number;
+	month: number; // 1-12
+	selectedTime: string; // "09:00" 形式
+}
 
 export interface QuickTimeOption {
 	label: string;
