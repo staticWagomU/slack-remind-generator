@@ -193,7 +193,7 @@ const dashboard = {
 				id: "ST-010",
 				title:
 					"APIキーストレージの実装 (src/services/aiKeyStorage.ts) - TDD Green",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "ST-011",
