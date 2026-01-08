@@ -176,7 +176,7 @@ const dashboard = {
 			{
 				id: "ST-007",
 				title: "エラー型の実装 (src/services/errors.ts) - TDD Green",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "ST-008",
