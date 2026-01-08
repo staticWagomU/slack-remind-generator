@@ -28,10 +28,7 @@ export class AIServiceError extends Error {
  * APIキー関連のエラー
  */
 export class APIKeyError extends AIServiceError {
-	constructor(
-		message = "APIキーが設定されていません",
-		details?: string,
-	) {
+	constructor(message = "APIキーが設定されていません", details?: string) {
 		super(message, "API_KEY_MISSING", details);
 		this.name = "APIKeyError";
 

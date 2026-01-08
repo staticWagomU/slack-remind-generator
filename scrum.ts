@@ -181,7 +181,7 @@ const dashboard = {
 			{
 				id: "ST-008",
 				title: "エラー型の実装 (src/services/errors.ts) - TDD Refactor",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "ST-009",
