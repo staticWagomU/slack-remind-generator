@@ -163,7 +163,7 @@ const dashboard = {
       {
         id: "ST-004",
         title: "型定義の実装 (src/types/ai.ts) - TDD Green",
-        status: "todo" as const,
+        status: "done" as const,
       },
       {
         id: "ST-005",
