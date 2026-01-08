@@ -51,4 +51,26 @@ describe("MainForm", () => {
 			expect(screen.getByText("リマインダーメッセージ")).toBeInTheDocument();
 		});
 	});
+
+	describe("レスポンシブレイアウト", () => {
+		it("AIセクションに適切なレスポンシブクラスが適用されている", () => {
+			const { container } = render(<MainForm />);
+			const aiSection = container.querySelector('[data-testid="ai-input-panel"]')?.parentElement;
+			expect(aiSection).toHaveClass("mb-8");
+		});
+
+		it("手動入力セクションのグリッドレイアウトが維持されている", () => {
+			const { container } = render(<MainForm />);
+			const gridElement = container.querySelector(".grid.grid-cols-1.lg\\:grid-cols-2");
+			expect(gridElement).toBeInTheDocument();
+		});
+
+		it("AIセクションが全幅で表示される", () => {
+			const { container } = render(<MainForm />);
+			const aiSection = container.querySelector('[data-testid="ai-input-panel"]')?.parentElement;
+			expect(aiSection).toBeInTheDocument();
+			// Check that it's not inside the 2-column grid
+			expect(aiSection?.parentElement?.classList.contains("grid")).toBe(false);
+		});
+	});
 });
