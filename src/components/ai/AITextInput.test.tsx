@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AITextInput } from "./AITextInput";
 
@@ -136,6 +136,138 @@ describe("AITextInput", () => {
 
 			const textarea = screen.getByRole("textbox");
 			expect(textarea).toHaveAccessibleName("リマインダー内容");
+		});
+	});
+
+	describe("デバウンス機能 (ST-4.1.3: RED)", () => {
+		it("onDebouncedChangeが提供された場合、300ms後に呼ばれる", async () => {
+			vi.useFakeTimers();
+			const handleChange = vi.fn();
+			const handleDebouncedChange = vi.fn();
+
+			const { rerender } = render(
+				<AITextInput
+					value=""
+					onChange={handleChange}
+					onDebouncedChange={handleDebouncedChange}
+				/>,
+			);
+
+			// Initial render calls with empty string
+			expect(handleDebouncedChange).toHaveBeenCalledWith("");
+			handleDebouncedChange.mockClear();
+
+			// Value change
+			rerender(
+				<AITextInput
+					value="test"
+					onChange={handleChange}
+					onDebouncedChange={handleDebouncedChange}
+				/>,
+			);
+
+			// Should not be called immediately after value change
+			expect(handleDebouncedChange).not.toHaveBeenCalled();
+
+			// Advance time by 299ms - should still not be called
+			act(() => {
+				vi.advanceTimersByTime(299);
+			});
+			expect(handleDebouncedChange).not.toHaveBeenCalled();
+
+			// Advance time by 1ms more (total 300ms) - should be called
+			act(() => {
+				vi.advanceTimersByTime(1);
+			});
+			expect(handleDebouncedChange).toHaveBeenCalledWith("test");
+
+			vi.useRealTimers();
+		});
+
+		it("連続入力時、最後の値のみがデバウンス後に通知される", async () => {
+			vi.useFakeTimers();
+			const handleChange = vi.fn();
+			const handleDebouncedChange = vi.fn();
+
+			const { rerender } = render(
+				<AITextInput
+					value=""
+					onChange={handleChange}
+					onDebouncedChange={handleDebouncedChange}
+				/>,
+			);
+
+			// Clear initial call
+			handleDebouncedChange.mockClear();
+
+			// Rapid changes
+			rerender(
+				<AITextInput
+					value="t"
+					onChange={handleChange}
+					onDebouncedChange={handleDebouncedChange}
+				/>,
+			);
+			act(() => {
+				vi.advanceTimersByTime(100);
+			});
+
+			rerender(
+				<AITextInput
+					value="te"
+					onChange={handleChange}
+					onDebouncedChange={handleDebouncedChange}
+				/>,
+			);
+			act(() => {
+				vi.advanceTimersByTime(100);
+			});
+
+			rerender(
+				<AITextInput
+					value="tes"
+					onChange={handleChange}
+					onDebouncedChange={handleDebouncedChange}
+				/>,
+			);
+			act(() => {
+				vi.advanceTimersByTime(100);
+			});
+
+			rerender(
+				<AITextInput
+					value="test"
+					onChange={handleChange}
+					onDebouncedChange={handleDebouncedChange}
+				/>,
+			);
+
+			// Should not be called yet
+			expect(handleDebouncedChange).not.toHaveBeenCalled();
+
+			// Wait for debounce
+			act(() => {
+				vi.advanceTimersByTime(300);
+			});
+
+			// Should be called only once with final value
+			expect(handleDebouncedChange).toHaveBeenCalledTimes(1);
+			expect(handleDebouncedChange).toHaveBeenCalledWith("test");
+
+			vi.useRealTimers();
+		});
+
+		it("onDebouncedChangeが未指定の場合でも正常動作する", async () => {
+			const user = userEvent.setup();
+			const handleChange = vi.fn();
+
+			render(<AITextInput value="" onChange={handleChange} />);
+
+			const textarea = screen.getByRole("textbox");
+			await user.type(textarea, "test");
+
+			// Should not throw error and onChange should be called
+			expect(handleChange).toHaveBeenCalled();
 		});
 	});
 });

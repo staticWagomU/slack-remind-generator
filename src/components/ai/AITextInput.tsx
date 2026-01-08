@@ -1,8 +1,11 @@
+import { useEffect } from "react";
 import { cn } from "../../lib/utils";
+import { useDebounce } from "../../hooks/useDebounce";
 
 export interface AITextInputProps {
 	value: string;
 	onChange: (value: string) => void;
+	onDebouncedChange?: (value: string) => void;
 	placeholder?: string;
 	helperText?: string;
 	label?: string;
@@ -13,15 +16,24 @@ export interface AITextInputProps {
 export function AITextInput({
 	value,
 	onChange,
+	onDebouncedChange,
 	placeholder,
 	helperText,
 	label,
 	maxLength = 500,
 	disabled = false,
 }: AITextInputProps) {
+	const debouncedValue = useDebounce(value, 300);
 	const charCount = value.length;
 	const isNearLimit = maxLength && charCount >= maxLength * 0.9;
 	const isAtLimit = maxLength && charCount >= maxLength;
+
+	// Call onDebouncedChange when debounced value changes
+	useEffect(() => {
+		if (onDebouncedChange) {
+			onDebouncedChange(debouncedValue);
+		}
+	}, [debouncedValue, onDebouncedChange]);
 
 	const counterColorClass = isAtLimit
 		? "text-red-600"
