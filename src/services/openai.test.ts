@@ -3,9 +3,18 @@ import { parseNaturalLanguageToCommands } from "./openai";
 import { APIKeyError, OpenAIAPIError } from "./errors";
 
 // OpenAI SDKのモック
+const mockCreate = vi.fn();
+
 vi.mock("openai", () => {
-	const OpenAI = vi.fn();
-	return { default: OpenAI };
+	return {
+		default: class {
+			chat = {
+				completions: {
+					create: mockCreate,
+				},
+			};
+		},
+	};
 });
 
 describe("OpenAI Service", () => {
@@ -40,17 +49,7 @@ describe("OpenAI Service", () => {
 				],
 			};
 
-			// OpenAI SDKのモックを設定
-			const { default: OpenAI } = await import("openai");
-			const mockCreate = vi.fn().mockResolvedValue(mockResponse);
-			// @ts-ignore - モックのため
-			OpenAI.mockImplementation(() => ({
-				chat: {
-					completions: {
-						create: mockCreate,
-					},
-				},
-			}));
+			mockCreate.mockResolvedValueOnce(mockResponse);
 
 			const result = await parseNaturalLanguageToCommands(
 				"sk-test-key",
@@ -89,16 +88,7 @@ describe("OpenAI Service", () => {
 				],
 			};
 
-			const { default: OpenAI } = await import("openai");
-			const mockCreate = vi.fn().mockResolvedValue(mockResponse);
-			// @ts-ignore
-			OpenAI.mockImplementation(() => ({
-				chat: {
-					completions: {
-						create: mockCreate,
-					},
-				},
-			}));
+			mockCreate.mockResolvedValueOnce(mockResponse);
 
 			const result = await parseNaturalLanguageToCommands(
 				"sk-test-key",
@@ -110,19 +100,10 @@ describe("OpenAI Service", () => {
 		});
 
 		it("should throw OpenAIAPIError on API error", async () => {
-			const { default: OpenAI } = await import("openai");
-			const mockCreate = vi.fn().mockRejectedValue({
+			mockCreate.mockRejectedValueOnce({
 				status: 500,
 				message: "Internal Server Error",
 			});
-			// @ts-ignore
-			OpenAI.mockImplementation(() => ({
-				chat: {
-					completions: {
-						create: mockCreate,
-					},
-				},
-			}));
 
 			await expect(
 				parseNaturalLanguageToCommands("sk-test-key", "テスト"),
