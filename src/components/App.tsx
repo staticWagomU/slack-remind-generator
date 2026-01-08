@@ -1,5 +1,10 @@
 import { MainForm } from "./layout/MainForm";
+import { ToastProvider } from "../hooks/useToast";
 
 export function App() {
-	return <MainForm />;
+	return (
+		<ToastProvider>
+			<MainForm />
+		</ToastProvider>
+	);
 }

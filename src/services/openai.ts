@@ -146,7 +146,9 @@ export async function parseNaturalLanguageToCommands(
 
 			// その他のエラー
 			throw new AIServiceError(
-				error instanceof Error ? error.message : "予期しないエラーが発生しました",
+				error instanceof Error
+					? error.message
+					: "予期しないエラーが発生しました",
 				"API_ERROR",
 			);
 		}

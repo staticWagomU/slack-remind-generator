@@ -8,16 +8,16 @@ import { useEffect, useState } from "react";
 
 /**
  * Debounces a value by delaying its update until after the specified delay
- * 
+ *
  * @template T - The type of value to debounce
  * @param value - The value to debounce
  * @param delay - The delay in milliseconds (recommended: 300ms for input)
  * @returns The debounced value
- * 
+ *
  * @example
  * ```tsx
  * const debouncedSearchTerm = useDebounce(searchTerm, 300);
- * 
+ *
  * useEffect(() => {
  *   // This will only run after user stops typing for 300ms
  *   searchAPI(debouncedSearchTerm);

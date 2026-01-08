@@ -99,8 +99,7 @@ const dashboard = {
 	// ─────────────────────────────────────────────────────────────
 	sprint: {
 		number: 4,
-		goal:
-			"AI機能のUXと信頼性を向上させ、プロダクション品質を達成する。デバウンス・リトライロジック・Toast通知でユーザー体験を改善し、テストカバレッジ閾値でコード品質を保証する。",
+		goal: "AI機能のUXと信頼性を向上させ、プロダクション品質を達成する。デバウンス・リトライロジック・Toast通知でユーザー体験を改善し、テストカバレッジ閾値でコード品質を保証する。",
 		pbi_id: "PBI-004",
 		subtasks: [
 			// Feature 1: Debounce for AITextInput (TDD Cycle)
@@ -121,8 +120,7 @@ const dashboard = {
 			},
 			{
 				id: "ST-4.1.4",
-				title:
-					"[GREEN] AITextInputにuseDebounce統合(API呼び出し削減確認)",
+				title: "[GREEN] AITextInputにuseDebounce統合(API呼び出し削減確認)",
 				status: "todo" as const,
 			},
 			{
@@ -140,8 +138,7 @@ const dashboard = {
 			},
 			{
 				id: "ST-4.2.2",
-				title:
-					"[GREEN] openai.tsにretry関数実装(max 3回, 1s/2s/4s backoff)",
+				title: "[GREEN] openai.tsにretry関数実装(max 3回, 1s/2s/4s backoff)",
 				status: "todo" as const,
 			},
 			{
@@ -173,14 +170,12 @@ const dashboard = {
 			},
 			{
 				id: "ST-4.3.3",
-				title:
-					"[RED] AIResultCardコピー成功/失敗時のToast表示テスト実装",
+				title: "[RED] AIResultCardコピー成功/失敗時のToast表示テスト実装",
 				status: "todo" as const,
 			},
 			{
 				id: "ST-4.3.4",
-				title:
-					"[GREEN] AIResultCardにToast通知統合(コピー成功/失敗時)",
+				title: "[GREEN] AIResultCardにToast通知統合(コピー成功/失敗時)",
 				status: "todo" as const,
 			},
 			{
@@ -202,14 +197,12 @@ const dashboard = {
 			// Feature 4: Vitest Coverage Threshold (TDD Cycle)
 			{
 				id: "ST-4.4.1",
-				title:
-					"[RED] coverage閾値未達時のビルド失敗テスト(CI simulation)",
+				title: "[RED] coverage閾値未達時のビルド失敗テスト(CI simulation)",
 				status: "todo" as const,
 			},
 			{
 				id: "ST-4.4.2",
-				title:
-					"[GREEN] vitest.config.tsにthresholds設定追加(80%/80%/75%/80%)",
+				title: "[GREEN] vitest.config.tsにthresholds設定追加(80%/80%/75%/80%)",
 				status: "todo" as const,
 			},
 			{
@@ -231,8 +224,7 @@ const dashboard = {
 			},
 			{
 				id: "ST-4.5.3",
-				title:
-					"Acceptance Criteria全項目達成確認とSprint 4完了レポート作成",
+				title: "Acceptance Criteria全項目達成確認とSprint 4完了レポート作成",
 				status: "todo" as const,
 			},
 		],

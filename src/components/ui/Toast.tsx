@@ -35,12 +35,7 @@ const ICON_STYLES = {
 	info: "text-blue-600",
 };
 
-export function Toast({
-	message,
-	type,
-	onClose,
-	duration = 3000,
-}: ToastProps) {
+export function Toast({ message, type, onClose, duration = 3000 }: ToastProps) {
 	const Icon = TOAST_ICONS[type];
 
 	useEffect(() => {

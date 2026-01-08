@@ -124,8 +124,14 @@ describe("OpenAI Service", () => {
 			it("should retry up to 3 times with exponential backoff on rate limit error", async () => {
 				// Mock failures then success
 				mockCreate
-					.mockRejectedValueOnce({ status: 429, message: "Rate limit exceeded" })
-					.mockRejectedValueOnce({ status: 429, message: "Rate limit exceeded" })
+					.mockRejectedValueOnce({
+						status: 429,
+						message: "Rate limit exceeded",
+					})
+					.mockRejectedValueOnce({
+						status: 429,
+						message: "Rate limit exceeded",
+					})
 					.mockResolvedValueOnce({
 						choices: [
 							{
@@ -157,9 +163,18 @@ describe("OpenAI Service", () => {
 			it("should throw error after 3 failed retries", async () => {
 				// Mock all failures
 				mockCreate
-					.mockRejectedValueOnce({ status: 429, message: "Rate limit exceeded" })
-					.mockRejectedValueOnce({ status: 429, message: "Rate limit exceeded" })
-					.mockRejectedValueOnce({ status: 429, message: "Rate limit exceeded" });
+					.mockRejectedValueOnce({
+						status: 429,
+						message: "Rate limit exceeded",
+					})
+					.mockRejectedValueOnce({
+						status: 429,
+						message: "Rate limit exceeded",
+					})
+					.mockRejectedValueOnce({
+						status: 429,
+						message: "Rate limit exceeded",
+					});
 
 				await expect(
 					parseNaturalLanguageToCommands("sk-test-key", "test"),
@@ -174,7 +189,10 @@ describe("OpenAI Service", () => {
 				let lastTime = Date.now();
 
 				mockCreate
-					.mockRejectedValueOnce({ status: 503, message: "Service unavailable" })
+					.mockRejectedValueOnce({
+						status: 503,
+						message: "Service unavailable",
+					})
 					.mockImplementationOnce(() => {
 						const now = Date.now();
 						delays.push(now - lastTime);
