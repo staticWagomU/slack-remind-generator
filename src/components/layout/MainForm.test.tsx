@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { MainForm } from "./MainForm";
 
 describe("MainForm", () => {
@@ -71,6 +72,44 @@ describe("MainForm", () => {
 			expect(aiSection).toBeInTheDocument();
 			// Check that it's not inside the 2-column grid
 			expect(aiSection?.parentElement?.classList.contains("grid")).toBe(false);
+		});
+	});
+
+	describe("独立した状態管理", () => {
+		it("AIセクションとMainFormセクションが独立して存在する", () => {
+			render(<MainForm />);
+			// AI section exists
+			const aiSection = screen.getByTestId("ai-input-panel");
+			expect(aiSection).toBeInTheDocument();
+			// Manual form sections exist
+			expect(screen.getByText("通知先")).toBeInTheDocument();
+			expect(screen.getByText("リマインダーメッセージ")).toBeInTheDocument();
+		});
+
+		it("手動入力フォームの操作がAIセクションに影響しない", async () => {
+			const user = userEvent.setup();
+			render(<MainForm />);
+
+			// Interact with manual form
+			const textarea = screen.getByPlaceholderText("リマインダーの内容を入力してください...");
+			await user.type(textarea, "test message");
+
+			// AI section should still be intact and independent
+			const aiSection = screen.getByTestId("ai-input-panel");
+			expect(aiSection).toBeInTheDocument();
+			expect(screen.getByText("AI リマインダー生成")).toBeInTheDocument();
+		});
+
+		it("AIセクションとMainFormセクションが別々のDOM階層に存在する", () => {
+			const { container } = render(<MainForm />);
+			const aiSection = container.querySelector('[data-testid="ai-input-panel"]');
+			const manualSection = container.querySelector(".grid.grid-cols-1.lg\\:grid-cols-2");
+
+			expect(aiSection).toBeInTheDocument();
+			expect(manualSection).toBeInTheDocument();
+			// Verify they are not nested
+			expect(manualSection?.contains(aiSection as Node)).toBe(false);
+			expect(aiSection?.contains(manualSection as Node)).toBe(false);
 		});
 	});
 });
