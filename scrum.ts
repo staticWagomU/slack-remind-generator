@@ -70,7 +70,7 @@ const dashboard = {
 			title: "Phase 3: App統合とレイアウト調整",
 			description:
 				"AIInputPanelをApp.tsxに組み込み、手動入力とAI入力の両方を提供する統合UI/UXを実装する",
-			status: "ready" as const,
+			status: "done" as const,
 			story_points: 5,
 			dependencies: ["PBI-001", "PBI-002"],
 			acceptance_criteria: [
@@ -147,7 +147,7 @@ const dashboard = {
 				id: "PBI-003-06",
 				title:
 					"Definition of Done確認: vitest/lint/build/TypeScriptエラーチェック",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 		],
 	},
@@ -156,9 +156,9 @@ const dashboard = {
 	// Metrics
 	// ─────────────────────────────────────────────────────────────
 	metrics: {
-		sprints_completed: 2,
-		pbis_completed: 2,
-		velocity: [5, 8],
+		sprints_completed: 3,
+		pbis_completed: 3,
+		velocity: [5, 8, 5],
 	},
 
 	// ─────────────────────────────────────────────────────────────
