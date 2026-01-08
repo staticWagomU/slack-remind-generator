@@ -141,14 +141,101 @@ const dashboard = {
   // ─────────────────────────────────────────────────────────────
   // Current Sprint (empty until Sprint Planning)
   // ─────────────────────────────────────────────────────────────
-  sprint: null as null | {
-    goal: string;
-    pbi_id: string;
-    subtasks: Array<{
-      id: string;
-      title: string;
-      status: "todo" | "red" | "green" | "refactor" | "done";
-    }>;
+  sprint: {
+    goal: "OpenAI APIとの連携基盤を構築し、自然言語からSlackリマインダーコマンドを生成できる状態にする",
+    pbi_id: "PBI-001",
+    subtasks: [
+      {
+        id: "ST-001",
+        title: "依存関係のセットアップ (openai, vitest, types)",
+        status: "done" as const,
+      },
+      {
+        id: "ST-002",
+        title: "vitest設定ファイルの作成とテスト環境構築",
+        status: "done" as const,
+      },
+      {
+        id: "ST-003",
+        title: "型定義の実装 (src/types/ai.ts) - TDD Red",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-004",
+        title: "型定義の実装 (src/types/ai.ts) - TDD Green",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-005",
+        title: "型定義の実装 (src/types/ai.ts) - TDD Refactor",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-006",
+        title: "エラー型の実装 (src/services/errors.ts) - TDD Red",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-007",
+        title: "エラー型の実装 (src/services/errors.ts) - TDD Green",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-008",
+        title: "エラー型の実装 (src/services/errors.ts) - TDD Refactor",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-009",
+        title: "APIキーストレージの実装 (src/services/aiKeyStorage.ts) - TDD Red",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-010",
+        title: "APIキーストレージの実装 (src/services/aiKeyStorage.ts) - TDD Green",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-011",
+        title: "APIキーストレージの実装 (src/services/aiKeyStorage.ts) - TDD Refactor",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-012",
+        title: "OpenAIサービスの実装 (src/services/openai.ts) - TDD Red",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-013",
+        title: "OpenAIサービスの実装 (src/services/openai.ts) - TDD Green",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-014",
+        title: "OpenAIサービスの実装 (src/services/openai.ts) - TDD Refactor",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-015",
+        title: "コマンド生成ユーティリティの実装 (src/utils/aiCommandGenerator.ts) - TDD Red",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-016",
+        title: "コマンド生成ユーティリティの実装 (src/utils/aiCommandGenerator.ts) - TDD Green",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-017",
+        title: "コマンド生成ユーティリティの実装 (src/utils/aiCommandGenerator.ts) - TDD Refactor",
+        status: "todo" as const,
+      },
+      {
+        id: "ST-018",
+        title: "全テスト実行と品質チェック (lint, format, build)",
+        status: "todo" as const,
+      },
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────
