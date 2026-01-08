@@ -110,7 +110,47 @@ const dashboard = {
 	// ─────────────────────────────────────────────────────────────
 	// Current Sprint
 	// ─────────────────────────────────────────────────────────────
-	sprint: null,
+	sprint: {
+		number: 3,
+		goal: "AI入力と手動入力を統合した完全なユーザー体験を提供する",
+		pbi_id: "PBI-003",
+		subtasks: [
+			{
+				id: "PBI-003-01",
+				title: "統合テストの準備: MainFormの統合前ベースラインテストを作成",
+				status: "done" as const,
+			},
+			{
+				id: "PBI-003-02",
+				title:
+					"AIInputPanelの統合: MainForm.tsxにAIInputPanelコンポーネントを追加",
+				status: "done" as const,
+			},
+			{
+				id: "PBI-003-03",
+				title:
+					"レスポンシブレイアウト実装: sm/md/lgでの適切な表示とスクロール制御",
+				status: "done" as const,
+			},
+			{
+				id: "PBI-003-04",
+				title:
+					"独立した状態管理の検証: AIとMainFormのローディング/エラー状態が干渉しないことを確認",
+				status: "done" as const,
+			},
+			{
+				id: "PBI-003-05",
+				title: "統合テスト実装: 両コンポーネントの共存と独立性をテストで保証",
+				status: "done" as const,
+			},
+			{
+				id: "PBI-003-06",
+				title:
+					"Definition of Done確認: vitest/lint/build/TypeScriptエラーチェック",
+				status: "todo" as const,
+			},
+		],
+	},
 
 	// ─────────────────────────────────────────────────────────────
 	// Metrics

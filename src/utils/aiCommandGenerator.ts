@@ -2,7 +2,8 @@
  * AI応答からSlackリマインドコマンドを生成するユーティリティ
  */
 
-import type { AIResponse } from "../types/ai";
+import type { AIRequest, AIResponse } from "../types/ai";
+import { parseNaturalLanguageToCommands } from "../services/openai";
 
 /**
  * メッセージをエスケープする
@@ -40,4 +41,16 @@ export function convertAIResponseToCommands(aiResponse: AIResponse): string[] {
 
 		return `/remind ${who} ${what} ${when}`;
 	});
+}
+
+/**
+ * 自然言語からリマインドコマンドを生成
+ */
+export async function generateRemindCommands(
+	request: AIRequest,
+): Promise<AIResponse> {
+	return await parseNaturalLanguageToCommands(
+		request.naturalLanguageInput,
+		request.apiKey,
+	);
 }
