@@ -182,17 +182,17 @@ const dashboard = {
 			{
 				id: "TASK-2.8",
 				title: "AITextInput型定義とテスト作成 (Red)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.9",
 				title: "AITextInputコンポーネント実装 (Green)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.10",
 				title: "AITextInputリファクタリング: 文字数カウンタとhelperText (Refactor)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 
 			// ──────────────────────────────────────────────────────────
