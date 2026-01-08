@@ -204,7 +204,7 @@ const dashboard = {
 			{
 				id: "ST-012",
 				title: "OpenAIサービスの実装 (src/services/openai.ts) - TDD Red",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "ST-013",
