@@ -29,4 +29,26 @@ describe("MainForm", () => {
 			expect(gridElement).toBeInTheDocument();
 		});
 	});
+
+	describe("AI統合", () => {
+		it("AIInputPanelが表示される", () => {
+			render(<MainForm />);
+			expect(screen.getByText("AI リマインダー生成")).toBeInTheDocument();
+		});
+
+		it("AIInputPanelとMainFormが視覚的に分離されている", () => {
+			const { container } = render(<MainForm />);
+			const aiSection = container.querySelector('[data-testid="ai-input-panel"]');
+			expect(aiSection).toBeInTheDocument();
+		});
+
+		it("手動入力セクションとAIセクションの両方が表示される", () => {
+			render(<MainForm />);
+			// AI section
+			expect(screen.getByText("AI リマインダー生成")).toBeInTheDocument();
+			// Manual section
+			expect(screen.getByText("通知先")).toBeInTheDocument();
+			expect(screen.getByText("リマインダーメッセージ")).toBeInTheDocument();
+		});
+	});
 });

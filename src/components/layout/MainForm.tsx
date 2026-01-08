@@ -3,6 +3,7 @@ import { WhoSection } from "../forms/WhoSection";
 import { WhatSection } from "../forms/WhatSection";
 import { WhenSection } from "../forms/WhenSection";
 import { CommandPreview } from "./CommandPreview";
+import { AIInputPanel } from "../ai/AIInputPanel";
 import {
 	type ReminderConfig,
 	type WhoType,
@@ -121,6 +122,21 @@ export function MainForm() {
 				</p>
 			</div>
 
+			{/* AI入力セクション */}
+			<div className="mb-8 p-6 bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-lg">
+				<AIInputPanel />
+			</div>
+
+			{/* 視覚的な区切り線 */}
+			<div className="mb-8 flex items-center gap-4">
+				<div className="flex-1 h-px bg-slate-200" />
+				<span className="text-sm text-slate-500 font-medium">
+					または手動で入力
+				</span>
+				<div className="flex-1 h-px bg-slate-200" />
+			</div>
+
+			{/* 手動入力セクション */}
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 				<div className="space-y-8">
 					<div className="bg-white p-6 border border-slate-200 rounded-lg shadow-sm">
