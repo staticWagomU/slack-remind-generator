@@ -110,12 +110,9 @@ const dashboard = {
 	// Retrospective Notes
 	// ─────────────────────────────────────────────────────────────
 	retrospective_notes: [
-		// Sprint 1 (5pts): TDD効果的、18サブタスク分解成功、DoD遵守
-		// Sprint 2 (8pts): TDD継続(92テスト)、shadcn/ui統合、6コンポーネント分離、a11y対応
-		// Sprint 3 (5pts): MainForm統合成功、レスポンシブ対応、独立状態管理、108テスト達成
-		// 改善: テストカバレッジ可視化、コミット粒度、エラーハンドリング強化
-		"[完了] PBI-003: AIInputPanel統合、gradient背景で視覚分離、sm/md/lg対応、16統合テスト追加",
-		"[アクション] PBI-004: retry logic, debounce処理, clipboard fallback, toast通知",
+		// Sprint 1-3 Summary: TDD効果的(108テスト)、shadcn/ui統合、MainForm統合成功、a11y/レスポンシブ対応
+		// 継続改善: テストカバレッジ可視化、コミット粒度、エラーハンドリング強化
+		"[アクション] PBI-004: retry logic, debounce処理, toast通知, vitest coverage(80%閾値)",
 	] as string[],
 };
 
