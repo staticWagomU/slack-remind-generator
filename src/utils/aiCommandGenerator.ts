@@ -50,7 +50,7 @@ export async function generateRemindCommands(
 	request: AIRequest,
 ): Promise<AIResponse> {
 	return await parseNaturalLanguageToCommands(
-		request.naturalLanguageInput,
 		request.apiKey,
+		request.naturalLanguageInput,
 	);
 }
