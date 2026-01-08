@@ -123,9 +123,163 @@ const dashboard = {
 	],
 
 	// ─────────────────────────────────────────────────────────────
-	// Current Sprint (empty until Sprint Planning)
+	// Current Sprint
 	// ─────────────────────────────────────────────────────────────
-	sprint: null,
+	sprint: {
+		number: 2,
+		goal:
+			"自然言語入力でSlackリマインダーを生成できるAI入力UIを実装し、shadcn/uiパターンに従った6つのコンポーネントをTDDで完成させる",
+		pbi_id: "PBI-002",
+		story_points: 8,
+		subtasks: [
+			// ──────────────────────────────────────────────────────────
+			// Component 1: AISetupPrompt (API未設定時の案内)
+			// ──────────────────────────────────────────────────────────
+			{
+				id: "TASK-2.1",
+				title: "AISetupPrompt型定義とテスト作成 (Red)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.2",
+				title: "AISetupPromptコンポーネント実装 (Green)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.3",
+				title: "AISetupPromptリファクタリングとアクセシビリティ対応 (Refactor)",
+				status: "todo" as const,
+			},
+
+			// ──────────────────────────────────────────────────────────
+			// Component 2: AISettingsDialog (APIキー設定ダイアログ)
+			// ──────────────────────────────────────────────────────────
+			{
+				id: "TASK-2.4",
+				title: "Dialog UIコンポーネント追加 (@radix-ui/react-dialog)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.5",
+				title: "AISettingsDialog型定義とテスト作成 (Red)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.6",
+				title: "AISettingsDialogコンポーネント実装 (Green)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.7",
+				title:
+					"AISettingsDialogリファクタリング: validation/focus management (Refactor)",
+				status: "todo" as const,
+			},
+
+			// ──────────────────────────────────────────────────────────
+			// Component 3: AITextInput (自然言語入力エリア)
+			// ──────────────────────────────────────────────────────────
+			{
+				id: "TASK-2.8",
+				title: "AITextInput型定義とテスト作成 (Red)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.9",
+				title: "AITextInputコンポーネント実装 (Green)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.10",
+				title: "AITextInputリファクタリング: 文字数カウンタとhelperText (Refactor)",
+				status: "todo" as const,
+			},
+
+			// ──────────────────────────────────────────────────────────
+			// Component 4: AIResultCard (結果カード1件表示)
+			// ──────────────────────────────────────────────────────────
+			{
+				id: "TASK-2.11",
+				title: "AIResultCard型定義とテスト作成 (Red)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.12",
+				title: "AIResultCardコンポーネント実装 (Green)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.13",
+				title:
+					"AIResultCardリファクタリング: confidence badge/copy button (Refactor)",
+				status: "todo" as const,
+			},
+
+			// ──────────────────────────────────────────────────────────
+			// Component 5: AIResultList (結果リスト)
+			// ──────────────────────────────────────────────────────────
+			{
+				id: "TASK-2.14",
+				title: "AIResultList型定義とテスト作成 (Red)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.15",
+				title: "AIResultListコンポーネント実装 (Green)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.16",
+				title:
+					"AIResultListリファクタリング: loading skeleton/error boundary (Refactor)",
+				status: "todo" as const,
+			},
+
+			// ──────────────────────────────────────────────────────────
+			// Component 6: AIInputPanel (メインパネル統合)
+			// ──────────────────────────────────────────────────────────
+			{
+				id: "TASK-2.17",
+				title: "AIInputPanel型定義とテスト作成 (Red)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.18",
+				title: "AIInputPanelコンポーネント実装: 全コンポーネント統合 (Green)",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.19",
+				title:
+					"AIInputPanelリファクタリング: state管理とエラーハンドリング (Refactor)",
+				status: "todo" as const,
+			},
+
+			// ──────────────────────────────────────────────────────────
+			// Integration & Quality
+			// ──────────────────────────────────────────────────────────
+			{
+				id: "TASK-2.20",
+				title: "全UIコンポーネントの統合テスト追加",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.21",
+				title: "デザインシステム一貫性チェック: color/spacing/typography",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.22",
+				title: "TypeScript型安全性チェック: no implicit any, strict mode",
+				status: "todo" as const,
+			},
+			{
+				id: "TASK-2.23",
+				title: "Definition of Done確認: test/lint/format/build全通過",
+				status: "todo" as const,
+			},
+		],
+	},
 
 	// ─────────────────────────────────────────────────────────────
 	// Metrics
