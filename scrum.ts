@@ -138,17 +138,17 @@ const dashboard = {
 			{
 				id: "TASK-2.1",
 				title: "AISetupPrompt型定義とテスト作成 (Red)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.2",
 				title: "AISetupPromptコンポーネント実装 (Green)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.3",
 				title: "AISetupPromptリファクタリングとアクセシビリティ対応 (Refactor)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 
 			// ──────────────────────────────────────────────────────────
