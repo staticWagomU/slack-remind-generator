@@ -60,42 +60,11 @@ const dashboard = {
 	product_backlog: [
 		// ✅ PBI-001: Phase 1: AI機能の基盤構築 (5pts, Sprint 1) - DONE
 		// Implemented: src/types/ai.ts, src/services/{errors,openai,aiKeyStorage}.ts, src/utils/aiCommandGenerator.ts
-		// Tests: 31 tests passing (5 test files)
-		{
-			id: "PBI-002",
-			title: "Phase 2: AI入力UI実装",
-			description:
-				"自然言語入力、設定ダイアログ、結果表示などのUIコンポーネントを実装する",
-			status: "done" as const,
-			story_points: 8,
-			technical_notes: [
-				"shadcn/ui パターンを使用: Radix UI primitives + Tailwind CSS v4",
-				"既存コンポーネント構造に従う: src/components/{ui,forms,layout}/",
-				"スタイリング: cn() utility, class-variance-authority (cva) for variants",
-				"状態管理: React useState hooks, props drilling pattern",
-				"フォームパターン: MainForm.tsx の validation/error handling を参考",
-				"Radix UI コンポーネント: Dialog (@radix-ui/react-dialog) for modal",
-				"アクセシビリティ: ARIA attributes, keyboard navigation, focus management",
-				"レスポンシブ: grid/flex layouts, lg: breakpoints (MainForm.tsx参考)",
-			],
-			acceptance_criteria: [
-				"AISetupPrompt: API未設定時に表示、設定を促すCTA付き、dismissable=false",
-				"AISettingsDialog: Radix Dialog使用、APIキー入力(type=password)、保存/キャンセルボタン、validation付き",
-				"AITextInput: Textarea base、placeholder/helperText対応、文字数カウンタ(max 500)、debounce処理なし(Phase 4で実装)",
-				"AIResultCard: RemindCommand 1件表示、confidence score badge、コピーボタン、低信頼度時warning表示",
-				"AIResultList: 複数ResultCard表示、空状態メッセージ、loading skeleton、error boundary",
-				"AIInputPanel: 上記全て統合、ローディング/エラー状態UI、既存MainFormと独立したレイアウト",
-				"デザインシステム一貫性: Button/Input/Textareaの既存variant使用、color palette統一(slate/sky/red)",
-				"TypeScript型安全性: AIRequest/AIResponse/AIError型使用、prop types定義、no implicit any",
-				"テスト可能性: data-testid属性付与、pure components優先、side effects分離",
-			],
-			dependencies: ["PBI-001"],
-			risks: [
-				"Radix UIライブラリの学習コスト: 既存popover.tsxを参考にすることで軽減",
-				"複雑なstate管理: 6コンポーネント間の状態共有が必要、props drilling増加の可能性",
-				"アクセシビリティ要件: 既存shadcn/uiパターンに従うことでカバー",
-			],
-		},
+		// Tests: 31 tests (5 files)
+
+		// ✅ PBI-002: Phase 2: AI入力UI実装 (8pts, Sprint 2) - DONE
+		// Implemented: src/components/ai/{AISetupPrompt,AISettingsDialog,AITextInput,AIResultCard,AIResultList,AIInputPanel}.tsx
+		// Tests: +61 tests (6 files), Total: 92 tests
 		{
 			id: "PBI-003",
 			title: "Phase 3: App統合とレイアウト調整",
@@ -149,30 +118,11 @@ const dashboard = {
 	// Retrospective Notes
 	// ─────────────────────────────────────────────────────────────
 	retrospective_notes: [
-		// Sprint 1 Retrospective (PBI-001: AI機能の基盤構築, 5 points)
-		"[良かった点] TDDアプローチが効果的: 31個のテストを先に作成し、型定義から実装まで段階的に進められた。品質基準(lint/format/build/test)を全てクリアして完了",
-		"[良かった点] サブタスク分割が適切: 5ストーリーポイントを18個のサブタスクに分解。依存関係の順序(依存追加→型定義→サービス層→テスト)が明確だった",
-		"[良かった点] Definition of Doneの遵守: 全ての受け入れ基準を満たし、品質ゲートを通過。技術的負債を残さず完了",
-		"[良かった点] 既存パターンの踏襲: reminder.ts, commandGenerator.ts の設計パターンを活用し、一貫性のあるコードベースを維持",
-		"[改善点] ストーリーポイント見積もりの精度向上: 5ポイントで18サブタスク+31テストは適切だったが、次回は類似の複雑度を参考に見積もり精度を上げる",
-		"[改善点] テストカバレッジの可視化: vitestの設定はあるがカバレッジレポート未設定。次スプリントでcoverage設定を追加検討",
-		"[改善点] リスク管理の追跡: 識別したリスク(localStorage平文保存、API仕様変更)への対応策を次フェーズで検討",
-		"[アクション] 次スプリント計画時: UI実装(PBI-002)の見積もりでは、コンポーネント数×複雑度でサブタスク数を算出",
-		"[アクション] 技術的負債管理: セキュリティリスク(APIキー管理)の改善をPBI-004または別バックログアイテムとして検討",
-		"[アクション] プロセス改善: retrospective_notesのフォーマットを[カテゴリ]形式で統一し、アクションアイテムを追跡可能にする",
-
-		// Sprint 2 Retrospective (PBI-002: AI入力UI実装, 8 points)
-		"[良かった点] TDD実践の継続: 8ポイントを23サブタスクに分解、Red-Green-Refactorサイクルを6コンポーネント全てで実施。92テスト全通過",
-		"[良かった点] shadcn/ui統合成功: Radix UI primitives + Tailwind CSS v4パターンを確立。Dialog/Popover等の既存パターンを踏襲し一貫性を維持",
-		"[良かった点] コンポーネント設計: 単一責任原則に従い6コンポーネント(SetupPrompt, SettingsDialog, TextInput, ResultCard, ResultList, InputPanel)を分離。再利用性と保守性が高い",
-		"[良かった点] アクセシビリティ: ARIA attributes, keyboard navigation, focus management を全コンポーネントで実装。スクリーンリーダー対応完了",
-		"[良かった点] Definition of Done達成: test(92 passed) / lint(warning 1件のみ) / format(auto-fix) / build(3.25s)全て通過",
-		"[改善点] テストモック戦略: AIInputPanelの統合テストでgenerateRemindCommandsのmock設定に課題。default export vs named exportの扱いを整理",
-		"[改善点] コミット粒度: 6コンポーネント×3フェーズ=18コミット想定だったが、実際は10コミット。より細かいコミットでhistoryを追跡しやすくする",
-		"[改善点] エラーハンドリング: clipboard APIのfallback未実装、toast通知機能未実装。次スプリントで追加検討",
-		"[アクション] PBI-003計画: App.tsx統合時はAIInputPanelの配置位置とレイアウト調整に注力。既存MainFormとの共存パターン確立",
-		"[アクション] PBI-004計画: エラーハンドリング強化(retry logic, better error messages), debounce処理追加, テストカバレッジ向上",
-		"[アクション] 技術的改善: @testing-library/react導入完了。vitest.config.tsにpath alias設定追加。次回から活用",
+		// Sprint 1 (5pts): TDD効果的、18サブタスク分解成功、DoD遵守
+		// Sprint 2 (8pts): TDD継続(92テスト)、shadcn/ui統合、6コンポーネント分離、a11y対応
+		// 改善: テストカバレッジ可視化、コミット粒度、エラーハンドリング強化
+		"[アクション] PBI-003: App.tsx統合時のレイアウト調整、MainFormとの共存パターン確立",
+		"[アクション] PBI-004: retry logic, debounce処理, clipboard fallback, toast通知",
 	] as string[],
 };
 
