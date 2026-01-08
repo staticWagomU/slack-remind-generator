@@ -63,7 +63,7 @@ const dashboard = {
 			title: "Phase 1: AI機能の基盤構築",
 			description:
 				"OpenAI APIとの連携に必要な型定義、サービス層、ユーティリティを実装する。これには依存関係のセットアップ、型定義、エラーハンドリング、APIキー管理、コマンド生成ロジックが含まれる。",
-			status: "ready" as const,
+			status: "done" as const,
 			story_points: 5,
 			technical_notes: [
 				"OpenAI SDK (openai パッケージ) を依存関係に追加する必要がある",
@@ -237,7 +237,7 @@ const dashboard = {
 			{
 				id: "ST-018",
 				title: "全テスト実行と品質チェック (lint, format, build)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 		],
 	},
