@@ -59,7 +59,7 @@ export async function parseNaturalLanguageToCommands(
 	});
 
 	// リトライロジック付きでAPI呼び出し
-	let lastError: unknown;
+	let _lastError: unknown;
 	for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
 		try {
 			// OpenAI APIを呼び出し
@@ -119,7 +119,7 @@ export async function parseNaturalLanguageToCommands(
 
 			return response;
 		} catch (error) {
-			lastError = error;
+			_lastError = error;
 
 			// エラーハンドリング
 			if (error instanceof AIServiceError) {
