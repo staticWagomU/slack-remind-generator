@@ -220,7 +220,7 @@ const dashboard = {
 				id: "ST-015",
 				title:
 					"コマンド生成ユーティリティの実装 (src/utils/aiCommandGenerator.ts) - TDD Red",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "ST-016",
