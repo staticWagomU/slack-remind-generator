@@ -58,42 +58,9 @@ const dashboard = {
 	// Product Backlog (ordered by priority)
 	// ─────────────────────────────────────────────────────────────
 	product_backlog: [
-		{
-			id: "PBI-001",
-			title: "Phase 1: AI機能の基盤構築",
-			description:
-				"OpenAI APIとの連携に必要な型定義、サービス層、ユーティリティを実装する。これには依存関係のセットアップ、型定義、エラーハンドリング、APIキー管理、コマンド生成ロジックが含まれる。",
-			status: "done" as const,
-			story_points: 5,
-			technical_notes: [
-				"OpenAI SDK (openai パッケージ) を依存関係に追加する必要がある",
-				"vitest とその設定ファイルを追加してテスト環境を整備する",
-				"既存の src/types/reminder.ts と src/utils/commandGenerator.ts のパターンに従う",
-				"localStorage を使用してAPIキーを管理する (ブラウザ環境)",
-				"エラーハンドリングは既存の ValidationError パターンを参考にする",
-			],
-			acceptance_criteria: [
-				"package.json に openai パッケージが追加されている",
-				"package.json に vitest, @vitest/ui, および関連する型定義が devDependencies に追加されている",
-				"vitest.config.ts が作成され、Astro + React 環境に適した設定がされている",
-				"src/types/ai.ts が作成され、AIRequest, AIResponse, AIError, RemindCommand, ConfidenceScore 型が定義されている",
-				"src/services/errors.ts が作成され、AIServiceError, APIKeyError, OpenAIAPIError のエラークラスが定義されている",
-				"src/services/openai.ts が作成され、parseNaturalLanguageToCommands 関数が実装されている",
-				"src/services/aiKeyStorage.ts が作成され、saveApiKey, getApiKey, clearApiKey 関数が実装されている",
-				"src/utils/aiCommandGenerator.ts が作成され、convertAIResponseToCommands 関数が実装されている",
-				"各サービス層とユーティリティに対応するテストファイル (*.test.ts) が作成されている",
-				"pnpm install が成功する (依存関係の整合性)",
-				"pnpm lint が通る (コード品質)",
-				"pnpm format:check が通る (コードフォーマット)",
-				"pnpm build が成功する (TypeScript型チェックとビルド)",
-				"pnpm vitest run が成功する (全テストがパス)",
-			],
-			dependencies: [],
-			risks: [
-				"OpenAI APIキーの管理方法について、セキュリティ上の懸念がある (localStorageは平文保存)",
-				"OpenAI API仕様の変更によりパース処理が影響を受ける可能性がある",
-			],
-		},
+		// ✅ PBI-001: Phase 1: AI機能の基盤構築 (5pts, Sprint 1) - DONE
+		// Implemented: src/types/ai.ts, src/services/{errors,openai,aiKeyStorage}.ts, src/utils/aiCommandGenerator.ts
+		// Tests: 31 tests passing (5 test files)
 		{
 			id: "PBI-002",
 			title: "Phase 2: AI入力UI実装",
@@ -162,7 +129,19 @@ const dashboard = {
 	// ─────────────────────────────────────────────────────────────
 	// Retrospective Notes
 	// ─────────────────────────────────────────────────────────────
-	retrospective_notes: [] as string[],
+	retrospective_notes: [
+		// Sprint 1 Retrospective (PBI-001: AI機能の基盤構築, 5 points)
+		"[良かった点] TDDアプローチが効果的: 31個のテストを先に作成し、型定義から実装まで段階的に進められた。品質基準(lint/format/build/test)を全てクリアして完了",
+		"[良かった点] サブタスク分割が適切: 5ストーリーポイントを18個のサブタスクに分解。依存関係の順序(依存追加→型定義→サービス層→テスト)が明確だった",
+		"[良かった点] Definition of Doneの遵守: 全ての受け入れ基準を満たし、品質ゲートを通過。技術的負債を残さず完了",
+		"[良かった点] 既存パターンの踏襲: reminder.ts, commandGenerator.ts の設計パターンを活用し、一貫性のあるコードベースを維持",
+		"[改善点] ストーリーポイント見積もりの精度向上: 5ポイントで18サブタスク+31テストは適切だったが、次回は類似の複雑度を参考に見積もり精度を上げる",
+		"[改善点] テストカバレッジの可視化: vitestの設定はあるがカバレッジレポート未設定。次スプリントでcoverage設定を追加検討",
+		"[改善点] リスク管理の追跡: 識別したリスク(localStorage平文保存、API仕様変更)への対応策を次フェーズで検討",
+		"[アクション] 次スプリント計画時: UI実装(PBI-002)の見積もりでは、コンポーネント数×複雑度でサブタスク数を算出",
+		"[アクション] 技術的負債管理: セキュリティリスク(APIキー管理)の改善をPBI-004または別バックログアイテムとして検討",
+		"[アクション] プロセス改善: retrospective_notesのフォーマットを[カテゴリ]形式で統一し、アクションアイテムを追跡可能にする",
+	] as string[],
 };
 
 // Output as JSON for tooling
