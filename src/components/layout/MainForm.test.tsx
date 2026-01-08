@@ -112,4 +112,66 @@ describe("MainForm", () => {
 			expect(aiSection?.contains(manualSection as Node)).toBe(false);
 		});
 	});
+
+	describe("統合テスト: 共存と独立性", () => {
+		it("完全な統合: すべての要素が正しく表示される", () => {
+			const { container } = render(<MainForm />);
+
+			// Header
+			expect(screen.getByText("Slackリマインドコマンド生成")).toBeInTheDocument();
+
+			// AI Section
+			expect(screen.getByText("AI リマインダー生成")).toBeInTheDocument();
+			expect(screen.getByTestId("ai-input-panel")).toBeInTheDocument();
+
+			// Divider
+			expect(screen.getByText("または手動で入力")).toBeInTheDocument();
+
+			// Manual Form Sections
+			expect(screen.getByText("通知先")).toBeInTheDocument();
+			expect(screen.getByText("リマインダーメッセージ")).toBeInTheDocument();
+			expect(screen.getByText("日時指定")).toBeInTheDocument();
+
+			// Command Preview
+			expect(screen.getByText("コマンドプレビュー")).toBeInTheDocument();
+
+			// Footer Info
+			expect(screen.getByText("Slackリマインダーについて")).toBeInTheDocument();
+		});
+
+		it("統合後も既存のレスポンシブレイアウトが機能する", () => {
+			const { container } = render(<MainForm />);
+
+			// AI section is full width
+			const aiSection = container.querySelector('[data-testid="ai-input-panel"]')?.parentElement;
+			expect(aiSection).toBeInTheDocument();
+
+			// Manual form uses responsive grid
+			const gridElement = container.querySelector(".grid.grid-cols-1.lg\\:grid-cols-2");
+			expect(gridElement).toBeInTheDocument();
+
+			// Sticky preview on large screens
+			const stickyPreview = container.querySelector(".lg\\:sticky");
+			expect(stickyPreview).toBeInTheDocument();
+		});
+
+		it("すべてのテストセクションが独立して動作する", async () => {
+			const user = userEvent.setup();
+			render(<MainForm />);
+
+			// Verify all sections are present
+			const aiSection = screen.getByTestId("ai-input-panel");
+			const manualTextarea = screen.getByPlaceholderText("リマインダーの内容を入力してください...");
+
+			expect(aiSection).toBeInTheDocument();
+			expect(manualTextarea).toBeInTheDocument();
+
+			// Interact with manual form
+			await user.type(manualTextarea, "Manual input test");
+
+			// AI section should remain intact
+			expect(screen.getByText("AI リマインダー生成")).toBeInTheDocument();
+			expect(aiSection).toBeInTheDocument();
+		});
+	});
 });
