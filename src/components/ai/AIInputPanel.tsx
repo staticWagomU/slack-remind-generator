@@ -6,10 +6,12 @@ import { AIResultList } from "./AIResultList";
 import { ShadcnButton } from "../ui/Button";
 import { getAIApiKey, setAIApiKey } from "../../services/aiKeyStorage";
 import { generateRemindCommands } from "../../utils/aiCommandGenerator";
+import { useToast } from "../../hooks/useToast";
 import type { AIResponse } from "../../types/ai";
 import { Sparkles } from "lucide-react";
 
 export function AIInputPanel() {
+	const { showToast } = useToast();
 	const [apiKey, setApiKeyState] = useState<string | null>(null);
 	const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 	const [inputText, setInputText] = useState("");
@@ -57,6 +59,7 @@ export function AIInputPanel() {
 				err instanceof Error ? err.message : "予期しないエラーが発生しました";
 			setError(errorMessage);
 			setResults(null);
+			showToast(errorMessage, "error");
 		} finally {
 			setIsLoading(false);
 		}
@@ -65,10 +68,10 @@ export function AIInputPanel() {
 	const handleCopy = async (commandText: string) => {
 		try {
 			await navigator.clipboard.writeText(commandText);
-			// TODO: Show success toast
+			showToast("コマンドをクリップボードにコピーしました", "success");
 		} catch (err) {
 			console.error("Failed to copy:", err);
-			// TODO: Show error toast
+			showToast("コピーに失敗しました", "error");
 		}
 	};
 
