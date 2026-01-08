@@ -24,3 +24,8 @@ export function getApiKey(): string | null {
 export function clearApiKey(): void {
 	localStorage.removeItem(STORAGE_KEY);
 }
+
+// Aliases for consistency
+export const setAIApiKey = saveApiKey;
+export const getAIApiKey = getApiKey;
+export const clearAIApiKey = clearApiKey;

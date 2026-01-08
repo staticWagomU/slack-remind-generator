@@ -221,18 +221,18 @@ const dashboard = {
 			{
 				id: "TASK-2.14",
 				title: "AIResultList型定義とテスト作成 (Red)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.15",
 				title: "AIResultListコンポーネント実装 (Green)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.16",
 				title:
 					"AIResultListリファクタリング: loading skeleton/error boundary (Refactor)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 
 			// ──────────────────────────────────────────────────────────
