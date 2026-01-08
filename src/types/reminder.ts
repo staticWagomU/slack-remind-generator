@@ -36,7 +36,12 @@ export interface AppState {
 	isLoading: boolean;
 }
 
-export type TimeInputMode = "quick" | "calendar" | "recurring" | "custom" | "lastBusinessDay";
+export type TimeInputMode =
+	| "quick"
+	| "calendar"
+	| "recurring"
+	| "custom"
+	| "lastBusinessDay";
 
 export interface LastBusinessDayConfig {
 	year: number;

@@ -68,7 +68,10 @@ export function LastBusinessDayMode({ onChange }: LastBusinessDayModeProps) {
 			<div className="space-y-2">
 				<label className="text-sm font-medium text-slate-700">年月を選択</label>
 				<div className="flex gap-2">
-					<Select value={config.year.toString()} onValueChange={handleYearChange}>
+					<Select
+						value={config.year.toString()}
+						onValueChange={handleYearChange}
+					>
 						<SelectTrigger className="w-32">
 							<SelectValue />
 						</SelectTrigger>

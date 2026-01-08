@@ -25,7 +25,10 @@ export function TimeModeSelector({ mode, onChange }: TimeModeSelectorProps) {
 					<img src="/reload.svg" alt="reload" className="w-4 h-4" />
 					<span className="hidden sm:inline">繰り返し</span>
 				</TabsTrigger>
-				<TabsTrigger value="lastBusinessDay" className="flex items-center gap-2">
+				<TabsTrigger
+					value="lastBusinessDay"
+					className="flex items-center gap-2"
+				>
 					<img src="/briefcase.svg" alt="briefcase" className="w-4 h-4" />
 					<span className="hidden sm:inline">最終営業日</span>
 				</TabsTrigger>

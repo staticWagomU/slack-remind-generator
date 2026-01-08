@@ -51,7 +51,10 @@ export function generateYearOptions(): Array<{ label: string; value: number }> {
 /**
  * 月の選択肢を生成（1-12月）
  */
-export function generateMonthOptions(): Array<{ label: string; value: number }> {
+export function generateMonthOptions(): Array<{
+	label: string;
+	value: number;
+}> {
 	return Array.from({ length: 12 }, (_, i) => ({
 		label: `${i + 1}月`,
 		value: i + 1,

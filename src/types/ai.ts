@@ -7,17 +7,17 @@
  * AIへのリクエスト
  */
 export interface AIRequest {
-  naturalLanguageInput: string;
-  apiKey: string;
+	naturalLanguageInput: string;
+	apiKey: string;
 }
 
 /**
  * Slackのリマインドコマンドを表す型
  */
 export interface RemindCommand {
-  who: string;
-  what: string;
-  when: string;
+	who: string;
+	what: string;
+	when: string;
 }
 
 /**
@@ -29,26 +29,26 @@ export type ConfidenceScore = number;
  * AIからのレスポンス
  */
 export interface AIResponse {
-  commands: RemindCommand[];
-  confidence: ConfidenceScore;
-  rawResponse: string;
+	commands: RemindCommand[];
+	confidence: ConfidenceScore;
+	rawResponse: string;
 }
 
 /**
  * AIエラーコード
  */
 export type AIErrorCode =
-  | "API_KEY_MISSING"
-  | "API_ERROR"
-  | "PARSE_ERROR"
-  | "NETWORK_ERROR"
-  | "INVALID_INPUT";
+	| "API_KEY_MISSING"
+	| "API_ERROR"
+	| "PARSE_ERROR"
+	| "NETWORK_ERROR"
+	| "INVALID_INPUT";
 
 /**
  * AIエラー
  */
 export interface AIError {
-  code: AIErrorCode;
-  message: string;
-  details?: string;
+	code: AIErrorCode;
+	message: string;
+	details?: string;
 }
