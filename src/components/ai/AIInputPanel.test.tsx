@@ -2,12 +2,18 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AIInputPanel } from "./AIInputPanel";
+import { ToastProvider } from "../../hooks/useToast";
 import * as aiKeyStorage from "../../services/aiKeyStorage";
 
 vi.mock("../../services/aiKeyStorage");
 vi.mock("../../utils/aiCommandGenerator", () => ({
 	generateRemindCommands: vi.fn(),
 }));
+
+// Wrapper component for tests
+function TestWrapper({ children }: { children: React.ReactNode }) {
+	return <ToastProvider>{children}</ToastProvider>;
+}
 
 describe("AIInputPanel", () => {
 	beforeEach(() => {
@@ -17,20 +23,20 @@ describe("AIInputPanel", () => {
 
 	describe("APIキー未設定時", () => {
 		it("AISetupPromptが表示される", () => {
-			render(<AIInputPanel />);
+			render(<AIInputPanel />, { wrapper: TestWrapper });
 
 			expect(screen.getByTestId("ai-setup-prompt")).toBeInTheDocument();
 		});
 
 		it("AITextInputが表示されない", () => {
-			render(<AIInputPanel />);
+			render(<AIInputPanel />, { wrapper: TestWrapper });
 
 			expect(screen.queryByTestId("ai-text-input")).not.toBeInTheDocument();
 		});
 
 		it("設定ボタンクリックでAISettingsDialogが開く", async () => {
 			const user = userEvent.setup();
-			render(<AIInputPanel />);
+			render(<AIInputPanel />, { wrapper: TestWrapper });
 
 			const button = screen.getByRole("button", { name: /設定/i });
 			await user.click(button);
@@ -45,25 +51,25 @@ describe("AIInputPanel", () => {
 		});
 
 		it("AISetupPromptが表示されない", () => {
-			render(<AIInputPanel />);
+			render(<AIInputPanel />, { wrapper: TestWrapper });
 
 			expect(screen.queryByTestId("ai-setup-prompt")).not.toBeInTheDocument();
 		});
 
 		it("AITextInputが表示される", () => {
-			render(<AIInputPanel />);
+			render(<AIInputPanel />, { wrapper: TestWrapper });
 
 			expect(screen.getByTestId("ai-text-input")).toBeInTheDocument();
 		});
 
 		it("生成ボタンが表示される", () => {
-			render(<AIInputPanel />);
+			render(<AIInputPanel />, { wrapper: TestWrapper });
 
 			expect(screen.getByRole("button", { name: "生成" })).toBeInTheDocument();
 		});
 
 		it("入力が空の場合、生成ボタンが無効", () => {
-			render(<AIInputPanel />);
+			render(<AIInputPanel />, { wrapper: TestWrapper });
 
 			const button = screen.getByRole("button", { name: "生成" });
 			expect(button).toBeDisabled();
@@ -71,7 +77,7 @@ describe("AIInputPanel", () => {
 
 		it("入力がある場合、生成ボタンが有効", async () => {
 			const user = userEvent.setup();
-			render(<AIInputPanel />);
+			render(<AIInputPanel />, { wrapper: TestWrapper });
 
 			const textarea = screen.getByRole("textbox");
 			await user.type(textarea, "明日の10時にミーティング");
@@ -81,7 +87,7 @@ describe("AIInputPanel", () => {
 		});
 
 		it("AIResultListが表示される", () => {
-			render(<AIInputPanel />);
+			render(<AIInputPanel />, { wrapper: TestWrapper });
 
 			// Empty state
 			expect(screen.getByTestId("ai-result-list-empty")).toBeInTheDocument();
@@ -90,7 +96,7 @@ describe("AIInputPanel", () => {
 
 	describe("アクセシビリティ", () => {
 		it("data-testid属性が付与されている", () => {
-			render(<AIInputPanel />);
+			render(<AIInputPanel />, { wrapper: TestWrapper });
 
 			expect(screen.getByTestId("ai-input-panel")).toBeInTheDocument();
 		});

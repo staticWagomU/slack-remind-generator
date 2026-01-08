@@ -97,7 +97,146 @@ const dashboard = {
 	// ─────────────────────────────────────────────────────────────
 	// Current Sprint
 	// ─────────────────────────────────────────────────────────────
-	sprint: null,
+	sprint: {
+		number: 4,
+		goal:
+			"AI機能のUXと信頼性を向上させ、プロダクション品質を達成する。デバウンス・リトライロジック・Toast通知でユーザー体験を改善し、テストカバレッジ閾値でコード品質を保証する。",
+		pbi_id: "PBI-004",
+		subtasks: [
+			// Feature 1: Debounce for AITextInput (TDD Cycle)
+			{
+				id: "ST-4.1.1",
+				title: "[RED] useDebounce hookのテスト実装(300ms遅延検証)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.1.2",
+				title: "[GREEN] useDebounce hookの実装(useEffect + setTimeout)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.1.3",
+				title: "[RED] AITextInputでdebounce適用のテスト実装",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.1.4",
+				title:
+					"[GREEN] AITextInputにuseDebounce統合(API呼び出し削減確認)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.1.5",
+				title: "[REFACTOR] debounce処理のコード整理とドキュメント追加",
+				status: "todo" as const,
+			},
+
+			// Feature 2: Retry Logic for OpenAI API (TDD Cycle)
+			{
+				id: "ST-4.2.1",
+				title:
+					"[RED] OpenAI API retry logicのテスト実装(exponential backoff検証)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.2.2",
+				title:
+					"[GREEN] openai.tsにretry関数実装(max 3回, 1s/2s/4s backoff)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.2.3",
+				title: "[RED] 全リトライ失敗時のエラーハンドリングテスト実装",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.2.4",
+				title: "[GREEN] 全失敗後のエラー投げ処理実装",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.2.5",
+				title: "[REFACTOR] retry logicのコード整理とエラーメッセージ改善",
+				status: "todo" as const,
+			},
+
+			// Feature 3: Toast Notifications (TDD Cycle)
+			{
+				id: "ST-4.3.1",
+				title: "[RED] Toast componentのテスト実装(表示・非表示検証)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.3.2",
+				title: "[GREEN] shadcn/ui toast component導入と基本設定",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.3.3",
+				title:
+					"[RED] AIResultCardコピー成功/失敗時のToast表示テスト実装",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.3.4",
+				title:
+					"[GREEN] AIResultCardにToast通知統合(コピー成功/失敗時)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.3.5",
+				title: "[RED] API error時のToast表示テスト実装",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.3.6",
+				title: "[GREEN] AIInputPanelにToast通知統合(API error時)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.3.7",
+				title: "[REFACTOR] Toast通知のメッセージ統一とa11y対応確認",
+				status: "todo" as const,
+			},
+
+			// Feature 4: Vitest Coverage Threshold (TDD Cycle)
+			{
+				id: "ST-4.4.1",
+				title:
+					"[RED] coverage閾値未達時のビルド失敗テスト(CI simulation)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.4.2",
+				title:
+					"[GREEN] vitest.config.tsにthresholds設定追加(80%/80%/75%/80%)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.4.3",
+				title: "[REFACTOR] 不足カバレッジ領域の特定と補完テスト追加",
+				status: "todo" as const,
+			},
+
+			// Integration & DoD Verification
+			{
+				id: "ST-4.5.1",
+				title: "既存108テスト全てpassすることを確認(pnpm vitest run)",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.5.2",
+				title: "DoD確認: lint/format/build全て成功することを検証",
+				status: "todo" as const,
+			},
+			{
+				id: "ST-4.5.3",
+				title:
+					"Acceptance Criteria全項目達成確認とSprint 4完了レポート作成",
+				status: "todo" as const,
+			},
+		],
+	},
 
 	// ─────────────────────────────────────────────────────────────
 	// Metrics
