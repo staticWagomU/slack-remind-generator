@@ -66,7 +66,7 @@ const dashboard = {
 			title: "Phase 2: AI入力UI実装",
 			description:
 				"自然言語入力、設定ダイアログ、結果表示などのUIコンポーネントを実装する",
-			status: "ready" as const,
+			status: "done" as const,
 			story_points: 8,
 			technical_notes: [
 				"shadcn/ui パターンを使用: Radix UI primitives + Tailwind CSS v4",
@@ -261,22 +261,22 @@ const dashboard = {
 			{
 				id: "TASK-2.20",
 				title: "全UIコンポーネントの統合テスト追加",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.21",
 				title: "デザインシステム一貫性チェック: color/spacing/typography",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.22",
 				title: "TypeScript型安全性チェック: no implicit any, strict mode",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.23",
 				title: "Definition of Done確認: test/lint/format/build全通過",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 		],
 	},
@@ -285,9 +285,9 @@ const dashboard = {
 	// Metrics
 	// ─────────────────────────────────────────────────────────────
 	metrics: {
-		sprints_completed: 1,
-		pbis_completed: 1,
-		velocity: [5],
+		sprints_completed: 2,
+		pbis_completed: 2,
+		velocity: [5, 8],
 	},
 
 	// ─────────────────────────────────────────────────────────────
@@ -314,6 +314,19 @@ const dashboard = {
 		"[アクション] 次スプリント計画時: UI実装(PBI-002)の見積もりでは、コンポーネント数×複雑度でサブタスク数を算出",
 		"[アクション] 技術的負債管理: セキュリティリスク(APIキー管理)の改善をPBI-004または別バックログアイテムとして検討",
 		"[アクション] プロセス改善: retrospective_notesのフォーマットを[カテゴリ]形式で統一し、アクションアイテムを追跡可能にする",
+
+		// Sprint 2 Retrospective (PBI-002: AI入力UI実装, 8 points)
+		"[良かった点] TDD実践の継続: 8ポイントを23サブタスクに分解、Red-Green-Refactorサイクルを6コンポーネント全てで実施。92テスト全通過",
+		"[良かった点] shadcn/ui統合成功: Radix UI primitives + Tailwind CSS v4パターンを確立。Dialog/Popover等の既存パターンを踏襲し一貫性を維持",
+		"[良かった点] コンポーネント設計: 単一責任原則に従い6コンポーネント(SetupPrompt, SettingsDialog, TextInput, ResultCard, ResultList, InputPanel)を分離。再利用性と保守性が高い",
+		"[良かった点] アクセシビリティ: ARIA attributes, keyboard navigation, focus management を全コンポーネントで実装。スクリーンリーダー対応完了",
+		"[良かった点] Definition of Done達成: test(92 passed) / lint(warning 1件のみ) / format(auto-fix) / build(3.25s)全て通過",
+		"[改善点] テストモック戦略: AIInputPanelの統合テストでgenerateRemindCommandsのmock設定に課題。default export vs named exportの扱いを整理",
+		"[改善点] コミット粒度: 6コンポーネント×3フェーズ=18コミット想定だったが、実際は10コミット。より細かいコミットでhistoryを追跡しやすくする",
+		"[改善点] エラーハンドリング: clipboard APIのfallback未実装、toast通知機能未実装。次スプリントで追加検討",
+		"[アクション] PBI-003計画: App.tsx統合時はAIInputPanelの配置位置とレイアウト調整に注力。既存MainFormとの共存パターン確立",
+		"[アクション] PBI-004計画: エラーハンドリング強化(retry logic, better error messages), debounce処理追加, テストカバレッジ向上",
+		"[アクション] 技術的改善: @testing-library/react導入完了。vitest.config.tsにpath alias設定追加。次回から活用",
 	] as string[],
 };
 
