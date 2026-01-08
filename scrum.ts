@@ -127,8 +127,7 @@ const dashboard = {
 	// ─────────────────────────────────────────────────────────────
 	sprint: {
 		number: 2,
-		goal:
-			"自然言語入力でSlackリマインダーを生成できるAI入力UIを実装し、shadcn/uiパターンに従った6つのコンポーネントをTDDで完成させる",
+		goal: "自然言語入力でSlackリマインダーを生成できるAI入力UIを実装し、shadcn/uiパターンに従った6つのコンポーネントをTDDで完成させる",
 		pbi_id: "PBI-002",
 		story_points: 8,
 		subtasks: [
@@ -191,7 +190,8 @@ const dashboard = {
 			},
 			{
 				id: "TASK-2.10",
-				title: "AITextInputリファクタリング: 文字数カウンタとhelperText (Refactor)",
+				title:
+					"AITextInputリファクタリング: 文字数カウンタとhelperText (Refactor)",
 				status: "done" as const,
 			},
 
@@ -241,18 +241,18 @@ const dashboard = {
 			{
 				id: "TASK-2.17",
 				title: "AIInputPanel型定義とテスト作成 (Red)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.18",
 				title: "AIInputPanelコンポーネント実装: 全コンポーネント統合 (Green)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.19",
 				title:
 					"AIInputPanelリファクタリング: state管理とエラーハンドリング (Refactor)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 
 			// ──────────────────────────────────────────────────────────

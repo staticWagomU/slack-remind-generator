@@ -19,15 +19,9 @@ export function AISetupPrompt({ onOpenSettings }: AISetupPromptProps) {
 				<p className="text-sm font-medium text-slate-900">
 					AI機能を使用するには
 				</p>
-				<p className="text-sm text-slate-600">
-					OpenAI APIキーの設定が必要です
-				</p>
+				<p className="text-sm text-slate-600">OpenAI APIキーの設定が必要です</p>
 			</div>
-			<ShadcnButton
-				onClick={onOpenSettings}
-				variant="outline"
-				size="sm"
-			>
+			<ShadcnButton onClick={onOpenSettings} variant="outline" size="sm">
 				設定
 			</ShadcnButton>
 		</div>

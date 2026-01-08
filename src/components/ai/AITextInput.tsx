@@ -56,9 +56,7 @@ export function AITextInput({
 			/>
 			<div className="flex items-center justify-between">
 				<div>
-					{helperText && (
-						<p className="text-sm text-slate-500">{helperText}</p>
-					)}
+					{helperText && <p className="text-sm text-slate-500">{helperText}</p>}
 				</div>
 				{maxLength && (
 					<p className={cn("text-sm", counterColorClass)}>

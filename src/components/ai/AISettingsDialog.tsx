@@ -98,22 +98,21 @@ export function AISettingsDialog({
 							aria-describedby={error ? "api-key-error" : undefined}
 						/>
 						{error && (
-							<p id="api-key-error" className="text-sm text-red-600" role="alert">
+							<p
+								id="api-key-error"
+								className="text-sm text-red-600"
+								role="alert"
+							>
 								{error}
 							</p>
 						)}
 					</div>
 				</div>
 				<DialogFooter>
-					<ShadcnButton
-						variant="outline"
-						onClick={handleCancel}
-					>
+					<ShadcnButton variant="outline" onClick={handleCancel}>
 						キャンセル
 					</ShadcnButton>
-					<ShadcnButton onClick={handleSave}>
-						保存
-					</ShadcnButton>
+					<ShadcnButton onClick={handleSave}>保存</ShadcnButton>
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>

@@ -59,11 +59,7 @@ export function AIResultCard({
 					>
 						{confidencePercent}%
 					</span>
-					<ShadcnButton
-						variant="outline"
-						size="sm"
-						onClick={handleCopy}
-					>
+					<ShadcnButton variant="outline" size="sm" onClick={handleCopy}>
 						<Copy className="h-4 w-4 mr-1" />
 						コピー
 					</ShadcnButton>
@@ -72,9 +68,7 @@ export function AIResultCard({
 			{isLowConfidence && (
 				<div className="flex items-start gap-2 rounded-md bg-amber-50 p-3 text-sm text-amber-800">
 					<AlertTriangle className="h-4 w-4 mt-0.5 flex-shrink-0" />
-					<p>
-						信頼度が低いため、コマンドを確認してください。
-					</p>
+					<p>信頼度が低いため、コマンドを確認してください。</p>
 				</div>
 			)}
 		</div>
