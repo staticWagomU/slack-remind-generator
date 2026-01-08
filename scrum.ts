@@ -65,34 +65,10 @@ const dashboard = {
 		// ✅ PBI-002: Phase 2: AI入力UI実装 (8pts, Sprint 2) - DONE
 		// Implemented: src/components/ai/{AISetupPrompt,AISettingsDialog,AITextInput,AIResultCard,AIResultList,AIInputPanel}.tsx
 		// Tests: +61 tests (6 files), Total: 92 tests
-		{
-			id: "PBI-003",
-			title: "Phase 3: App統合とレイアウト調整",
-			description:
-				"AIInputPanelをApp.tsxに組み込み、手動入力とAI入力の両方を提供する統合UI/UXを実装する",
-			status: "done" as const,
-			story_points: 5,
-			dependencies: ["PBI-001", "PBI-002"],
-			acceptance_criteria: [
-				"App.tsxまたはMainForm.tsxにAIInputPanelが統合され、手動/AI両方の入力方法が利用可能",
-				"既存MainFormとAIInputPanelが視覚的に分離され、どちらも操作可能な状態で共存している",
-				"モバイル(sm)、タブレット(md)、デスクトップ(lg)すべてで適切にレイアウトされ、横スクロールが発生しない",
-				"AIInputPanelのローディング/エラー状態が既存のMainFormに影響を与えず独立して表示される",
-				"統合後もpnpm vitest run、pnpm lint、pnpm buildがすべて成功する",
-			],
-			technical_notes: [
-				"統合方法の選択肢: (A) MainForm内に新セクションとして追加 OR (B) App.tsxでタブ/アコーディオン形式で切替",
-				"推奨アプローチ: MainForm上部にAIInputPanelを追加し、境界線で視覚的分離を明確化",
-				"既存レスポンシブパターンを踏襲: grid-cols-1 lg:grid-cols-2、lg:sticky lg:top-6 lg:h-fit",
-				"AIInputPanelは幅100%で表示し、内部の2カラムレイアウトは既存パターンに合わせる",
-				"App.test.tsxまたはMainForm.test.tsxに統合後の状態検証テストを追加(render test、両コンポーネント存在確認)",
-				"既存92テストを破壊しないことを確認後、統合テストを追加",
-			],
-			risks: [
-				"既存MainFormのレイアウトロジック変更により、意図しないUI崩れが発生する可能性",
-				"モバイルでAIInputPanelとMainFormが縦に並んだ際の画面スクロール量増加によるUX低下",
-			],
-		},
+		// ✅ PBI-003: Phase 3: App統合とレイアウト調整 (5pts, Sprint 3) - DONE
+		// Implemented: AIInputPanel integrated into MainForm.tsx with visual separation
+		// Tests: +16 tests in MainForm.test.tsx, Total: 108 tests
+		// Layout: Responsive grid (sm/md/lg), independent state management, gradient AI section
 		{
 			id: "PBI-004",
 			title: "Phase 4: 品質向上とテスト",
@@ -110,47 +86,7 @@ const dashboard = {
 	// ─────────────────────────────────────────────────────────────
 	// Current Sprint
 	// ─────────────────────────────────────────────────────────────
-	sprint: {
-		number: 3,
-		goal: "AI入力と手動入力を統合した完全なユーザー体験を提供する",
-		pbi_id: "PBI-003",
-		subtasks: [
-			{
-				id: "PBI-003-01",
-				title: "統合テストの準備: MainFormの統合前ベースラインテストを作成",
-				status: "done" as const,
-			},
-			{
-				id: "PBI-003-02",
-				title:
-					"AIInputPanelの統合: MainForm.tsxにAIInputPanelコンポーネントを追加",
-				status: "done" as const,
-			},
-			{
-				id: "PBI-003-03",
-				title:
-					"レスポンシブレイアウト実装: sm/md/lgでの適切な表示とスクロール制御",
-				status: "done" as const,
-			},
-			{
-				id: "PBI-003-04",
-				title:
-					"独立した状態管理の検証: AIとMainFormのローディング/エラー状態が干渉しないことを確認",
-				status: "done" as const,
-			},
-			{
-				id: "PBI-003-05",
-				title: "統合テスト実装: 両コンポーネントの共存と独立性をテストで保証",
-				status: "done" as const,
-			},
-			{
-				id: "PBI-003-06",
-				title:
-					"Definition of Done確認: vitest/lint/build/TypeScriptエラーチェック",
-				status: "done" as const,
-			},
-		],
-	},
+	sprint: null,
 
 	// ─────────────────────────────────────────────────────────────
 	// Metrics
@@ -176,8 +112,9 @@ const dashboard = {
 	retrospective_notes: [
 		// Sprint 1 (5pts): TDD効果的、18サブタスク分解成功、DoD遵守
 		// Sprint 2 (8pts): TDD継続(92テスト)、shadcn/ui統合、6コンポーネント分離、a11y対応
+		// Sprint 3 (5pts): MainForm統合成功、レスポンシブ対応、独立状態管理、108テスト達成
 		// 改善: テストカバレッジ可視化、コミット粒度、エラーハンドリング強化
-		"[アクション] PBI-003: App.tsx統合時のレイアウト調整、MainFormとの共存パターン確立",
+		"[完了] PBI-003: AIInputPanel統合、gradient背景で視覚分離、sm/md/lg対応、16統合テスト追加",
 		"[アクション] PBI-004: retry logic, debounce処理, clipboard fallback, toast通知",
 	] as string[],
 };
