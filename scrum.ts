@@ -65,7 +65,6 @@ const dashboard = {
 		// ✅ PBI-001: Phase 1: AI機能の基盤構築 (5pts, Sprint 1) - DONE
 		// Implemented: src/types/ai.ts, src/services/{errors,openai,aiKeyStorage}.ts, src/utils/aiCommandGenerator.ts
 		// Tests: 31 tests (5 files)
-
 		// ✅ PBI-002: Phase 2: AI入力UI実装 (8pts, Sprint 2) - DONE
 		// Implemented: src/components/ai/{AISetupPrompt,AISettingsDialog,AITextInput,AIResultCard,AIResultList,AIInputPanel}.tsx
 		// Tests: +61 tests (6 files), Total: 92 tests
@@ -73,7 +72,6 @@ const dashboard = {
 		// Implemented: AIInputPanel integrated into MainForm.tsx with visual separation
 		// Tests: +16 tests in MainForm.test.tsx, Total: 108 tests
 		// Layout: Responsive grid (sm/md/lg), independent state management, gradient AI section
-
 		// ✅ PBI-004: Phase 4: 品質向上とテスト (5pts, Sprint 4) - DONE
 		// Implemented: useDebounce (300ms), retry logic (max 3, 1s/2s/4s), Toast notifications, coverage (80%/80%/75%/80%)
 		// Tests: +11 tests, Total: 119 tests. All DoD verified.
