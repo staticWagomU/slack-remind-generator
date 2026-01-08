@@ -68,13 +68,29 @@ const dashboard = {
 		{
 			id: "PBI-003",
 			title: "Phase 3: App統合とレイアウト調整",
-			description: "AIInputPanelをApp.tsxに組み込み、レスポンシブ対応を行う",
-			status: "draft" as const,
+			description:
+				"AIInputPanelをApp.tsxに組み込み、手動入力とAI入力の両方を提供する統合UI/UXを実装する",
+			status: "ready" as const,
+			story_points: 5,
+			dependencies: ["PBI-001", "PBI-002"],
 			acceptance_criteria: [
-				"App.tsxにAIInputPanelが組み込まれている",
-				"既存のフォームと共存するレイアウトになっている",
-				"モバイルでも使いやすいレスポンシブデザイン",
-				"ローディング状態とエラー状態が適切に表示される",
+				"App.tsxまたはMainForm.tsxにAIInputPanelが統合され、手動/AI両方の入力方法が利用可能",
+				"既存MainFormとAIInputPanelが視覚的に分離され、どちらも操作可能な状態で共存している",
+				"モバイル(sm)、タブレット(md)、デスクトップ(lg)すべてで適切にレイアウトされ、横スクロールが発生しない",
+				"AIInputPanelのローディング/エラー状態が既存のMainFormに影響を与えず独立して表示される",
+				"統合後もpnpm vitest run、pnpm lint、pnpm buildがすべて成功する",
+			],
+			technical_notes: [
+				"統合方法の選択肢: (A) MainForm内に新セクションとして追加 OR (B) App.tsxでタブ/アコーディオン形式で切替",
+				"推奨アプローチ: MainForm上部にAIInputPanelを追加し、境界線で視覚的分離を明確化",
+				"既存レスポンシブパターンを踏襲: grid-cols-1 lg:grid-cols-2、lg:sticky lg:top-6 lg:h-fit",
+				"AIInputPanelは幅100%で表示し、内部の2カラムレイアウトは既存パターンに合わせる",
+				"App.test.tsxまたはMainForm.test.tsxに統合後の状態検証テストを追加(render test、両コンポーネント存在確認)",
+				"既存92テストを破壊しないことを確認後、統合テストを追加",
+			],
+			risks: [
+				"既存MainFormのレイアウトロジック変更により、意図しないUI崩れが発生する可能性",
+				"モバイルでAIInputPanelとMainFormが縦に並んだ際の画面スクロール量増加によるUX低下",
 			],
 		},
 		{
