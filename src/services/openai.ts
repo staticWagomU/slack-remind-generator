@@ -71,7 +71,7 @@ export async function parseNaturalLanguageToCommands(
 						content: `あなたはSlackのリマインドコマンド生成アシスタントです。
 ユーザーの自然言語入力を、Slackの/remindコマンドに変換してください。
 
-出力形式:
+出力形式（JSON）:
 {
   "commands": [
     {
