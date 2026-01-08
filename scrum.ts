@@ -201,18 +201,18 @@ const dashboard = {
 			{
 				id: "TASK-2.11",
 				title: "AIResultCard型定義とテスト作成 (Red)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.12",
 				title: "AIResultCardコンポーネント実装 (Green)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.13",
 				title:
 					"AIResultCardリファクタリング: confidence badge/copy button (Refactor)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 
 			// ──────────────────────────────────────────────────────────
