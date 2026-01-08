@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import { saveApiKey, getApiKey, clearApiKey } from "./aiKeyStorage";
 
 describe("AIKeyStorage", () => {

@@ -232,7 +232,7 @@ const dashboard = {
 				id: "ST-017",
 				title:
 					"コマンド生成ユーティリティの実装 (src/utils/aiCommandGenerator.ts) - TDD Refactor",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "ST-018",
