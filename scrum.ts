@@ -157,23 +157,23 @@ const dashboard = {
 			{
 				id: "TASK-2.4",
 				title: "Dialog UIコンポーネント追加 (@radix-ui/react-dialog)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.5",
 				title: "AISettingsDialog型定義とテスト作成 (Red)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.6",
 				title: "AISettingsDialogコンポーネント実装 (Green)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 			{
 				id: "TASK-2.7",
 				title:
 					"AISettingsDialogリファクタリング: validation/focus management (Refactor)",
-				status: "todo" as const,
+				status: "done" as const,
 			},
 
 			// ──────────────────────────────────────────────────────────
