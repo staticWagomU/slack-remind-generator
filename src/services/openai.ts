@@ -90,7 +90,8 @@ export async function parseNaturalLanguageToCommands(
 		// OpenAI APIエラー
 		if (error && typeof error === "object" && "status" in error) {
 			const statusCode = (error as { status?: number }).status || 500;
-			const message = (error as { message?: string }).message || "API呼び出しに失敗しました";
+			const message =
+				(error as { message?: string }).message || "API呼び出しに失敗しました";
 			throw new OpenAIAPIError(message, statusCode);
 		}
 
